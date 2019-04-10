@@ -1,0 +1,28 @@
+{
+  "name": "css-transform",
+  "version": "1.0.0",
+  "description": "CSS Transform Functions Playground",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alterebro/css-transform.git"
+  },
+  "keywords": [
+    "CSS",
+    "transform",
+    "2D",
+    "3D"
+  ],
+  "author": "Jorge Moreno @alterebro (moro.es)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alterebro/css-transform/issues"
+  },
+  "homepage": "https://github.com/alterebro/css-transform#readme",
+  "devDependencies": {
+    "gulp": "^4.0.0"
+  }
+}
