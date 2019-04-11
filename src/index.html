@@ -7,291 +7,283 @@
 </head>
 <body>
 
-<header>
-    <h1>CSS Transform</h1>
-    <p>2D / 3D CSS Transform functions visualizer</p>
-    <hr />
-</header>
+<div id="app">
 
-<aside>
-    <form action="/" method="post">
-        <fieldset>
-            <legend>Property Settings</legend>
+    <header>
+        <h1>CSS Transform</h1>
+        <p>2D / 3D CSS Transform functions visualizer</p>
+        <hr />
+    </header>
 
-            <dl>
+    <aside>
+        <form action="/" method="post">
+            <fieldset>
+                <legend>Property Settings</legend>
+                <dl>
 
+                    <!-- Rotate 2D -->
+                    <dt>
+                        <label for="rotate-2d">
+                            <input type="checkbox" id="rotate-2d" />
+                            <strong>Rotate 2D</strong>
+                        </label>
+                        <a href="#info-rotate-2d">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="rotate-2d-range">rotate (2D)</label>
+                        <input type="range" id="rotate-2d-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
-                <!-- Rotate 2D -->
-                <dt>
-                    <label for="rotate-2d">
-                        <input type="checkbox" id="rotate-2d" />
-                        <strong>Rotate 2D</strong>
-                    </label>
-                    <a href="#info-rotate-2d">Info</a>
-                </dt>
-                <dd>
-                    <label for="rotate-2d-range">rotate (2D)</label>
-                    <input type="range" id="rotate-2d-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+                    <!-- Rotate 3D -->
+                    <dt>
+                        <label for="rotate-3d">
+                            <input type="checkbox" id="rotate-3d" />
+                            <strong>Rotate 3D</strong>
+                        </label>
+                        <a href="#info-rotate-3d">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="rotate-3d-range-x">rotate (x)</label>
+                        <input type="range" id="rotate-3d-range-x" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="rotate-3d-range-y">rotate (y)</label>
+                        <input type="range" id="rotate-3d-range-y" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="rotate-3d-range-z">rotate (z)</label>
+                        <input type="range" id="rotate-3d-range-z" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
+                    <!-- Perspective -->
+                    <dt>
+                        <label for="perspective">
+                            <input type="checkbox" id="perspective" />
+                            <strong>Perspective</strong>
+                        </label>
+                        <a href="#info-perspective">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="perspective-range">perspective</label>
+                        <input type="range" id="perspective-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
-                <!-- Rotate 3D -->
-                <dt>
-                    <label for="rotate-3d">
-                        <input type="checkbox" id="rotate-3d" />
-                        <strong>Rotate 3D</strong>
-                    </label>
-                    <a href="#info-rotate-3d">Info</a>
-                </dt>
-                <dd>
-                    <label for="rotate-3d-range-x">rotate (x)</label>
-                    <input type="range" id="rotate-3d-range-x" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="rotate-3d-range-y">rotate (y)</label>
-                    <input type="range" id="rotate-3d-range-y" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="rotate-3d-range-z">rotate (z)</label>
-                    <input type="range" id="rotate-3d-range-z" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+                    <!-- Transform Origin -->
+                    <dt>
+                        <label for="transform-origin">
+                            <input type="checkbox" id="transform-origin" />
+                            <strong>Transform Origin</strong>
+                        </label>
+                        <a href="#info-transform-origin">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="transform-x-range">transform-origin (x)</label>
+                        <input type="range" id="transform-x-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="transform-y-range">transform-origin (y)</label>
+                        <input type="range" id="transform-y-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="transform-z-range">transform-origin (z)</label>
+                        <input type="range" id="transform-z-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
+                    <!-- Scale -->
+                    <dt>
+                        <label for="scale">
+                            <input type="checkbox" id="scale" />
+                            <strong>Scale</strong>
+                        </label>
+                        <a href="#info-scale">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="scale-range">scale</label>
+                        <input type="range" id="scale-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
-                <!-- Perspective -->
-                <dt>
-                    <label for="perspective">
-                        <input type="checkbox" id="perspective" />
-                        <strong>Perspective</strong>
-                    </label>
-                    <a href="#info-perspective">Info</a>
-                </dt>
-                <dd>
-                    <label for="perspective-range">perspective</label>
-                    <input type="range" id="perspective-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+                    <!-- Translate -->
+                    <dt>
+                        <label for="translate">
+                            <input type="checkbox" id="translate" />
+                            <strong>Translate</strong>
+                        </label>
+                        <a href="#info-translate">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="translate-x-range">translate-x</label>
+                        <input type="range" id="translate-x-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="translate-y-range">translate-y</label>
+                        <input type="range" id="translate-y-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
 
+                    <!-- Skew -->
+                    <dt>
+                        <label for="skew">
+                            <input type="checkbox" id="skew" />
+                            <strong>Skew</strong>
+                        </label>
+                        <a href="#info-skew">Info</a>
+                    </dt>
+                    <dd>
+                        <label for="skew-x-range">skew-x</label>
+                        <input type="range" id="skew-x-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <label for="skew-y-range">skew-y</label>
+                        <input type="range" id="skew-y-range" />
+                        <code>...</code>
+                    </dd>
+                    <dd>
+                        <button type="button">Random</button>
+                        <button type="button">Reset</button>
+                    </dd>
+                </dl>
 
-                <!-- Transform Origin -->
-                <dt>
-                    <label for="transform-origin">
-                        <input type="checkbox" id="transform-origin" />
-                        <strong>Transform Origin</strong>
-                    </label>
-                    <a href="#info-transform-origin">Info</a>
-                </dt>
-                <dd>
-                    <label for="transform-x-range">transform-origin (x)</label>
-                    <input type="range" id="transform-x-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="transform-y-range">transform-origin (y)</label>
-                    <input type="range" id="transform-y-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="transform-z-range">transform-origin (z)</label>
-                    <input type="range" id="transform-z-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+                <hr />
 
+                <p>
+                    <button type="button">Random All</button>
+                    <button type="button">Reset All</button>
+                    <button type="button">Activate All</button>
+                    <button type="button">Deactivate All</button>
+                </p>
+            </fieldset>
+        </form>
+        <hr />
+    </aside>
 
-                <!-- Scale -->
-                <dt>
-                    <label for="scale">
-                        <input type="checkbox" id="scale" />
-                        <strong>Scale</strong>
-                    </label>
-                    <a href="#info-scale">Info</a>
-                </dt>
-                <dd>
-                    <label for="scale-range">scale</label>
-                    <input type="range" id="scale-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+    <main>
+        <div id="box"><!-- box --></div>
+        <hr />
+    </main>
 
+    <article>
 
-                <!-- Translate -->
-                <dt>
-                    <label for="translate">
-                        <input type="checkbox" id="translate" />
-                        <strong>Translate</strong>
-                    </label>
-                    <a href="#info-translate">Info</a>
-                </dt>
-                <dd>
-                    <label for="translate-x-range">translate-x</label>
-                    <input type="range" id="translate-x-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="translate-y-range">translate-y</label>
-                    <input type="range" id="translate-y-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
+        <section id="info-rotate-2d">
+            <h2>Rotation (2D)</h2>
 
-
-                <!-- Skew -->
-                <dt>
-                    <label for="skew">
-                        <input type="checkbox" id="skew" />
-                        <strong>Skew</strong>
-                    </label>
-                    <a href="#info-skew">Info</a>
-                </dt>
-                <dd>
-                    <label for="skew-x-range">skew-x</label>
-                    <input type="range" id="skew-x-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <label for="skew-y-range">skew-y</label>
-                    <input type="range" id="skew-y-range" />
-                    <code>...</code>
-                </dd>
-                <dd>
-                    <button type="button">Random</button>
-                    <button type="button">Reset</button>
-                </dd>
-            </dl>
-
+            <h3><code>rotate()</code> <small>Rotates an element around a fixed point on the 2D plane.</small></h3>
+            <p>The <code>rotate()</code> CSS function defines a transformation that rotates an element around a fixed point on the 2D plane, without deforming it. The amount of rotation created by <code>rotate()</code> is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise. (A rotation by 180° is called point reflection.)</p>
+            <p>The axis of rotation passes through an origin, defined by the <code>transform-origin</code> CSS property.</p>
+            <p> &mdash; <em>More info: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate</a></em></p>
 
             <hr />
+        </section>
 
+        <section id="info-rotate-3d">
+            <h2>Rotation (3D)</h2>
 
-            <p>
-                <button type="button">Random All</button>
-                <button type="button">Reset All</button>
-                <button type="button">Activate All</button>
-                <button type="button">Deactivate All</button>
-            </p>
-        </fieldset>
-    </form>
-    <hr />
-</aside>
+            <h3><code>rotateX()</code> <small>Rotates an element around the horizontal axis.</small></h3>
+            <p>The <code>rotateX()</code> CSS function defines a transformation that rotates an element around the abscissa (horizontal axis) without deforming it. The amount of rotation created by <code>rotateX()</code> is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
+            <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
+            <blockquote><p><em><code>rotateX(a)</code> is equivalent to <code>rotate3d(1, 0, 0, a)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX</a></em></p>
 
-<main>
-    <div id="box"><!-- box --></div>
-    <hr />
-</main>
+            <h3><code>rotateY()</code> <small>Rotates an element around the vertical axis.</small></h3>
+            <p>The <code>rotateY()</code> CSS function defines a transformation that rotates an element around the ordinate (vertical axis) without deforming it. The amount of rotation created by rotateY() is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
+            <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
+            <blockquote><p><em><code>rotateY(a)</code> is equivalent to <code>rotate3d(0, 1, 0, a)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY</a></em></p>
 
-<article>
+            <h3><code>rotateZ()</code> <small>Rotates an element around the z-axis.</small></h3>
+            <p>The <code>rotateZ()</code> CSS function defines a transformation that rotates an element around the z-axis without deforming it.</p>
+            <p>The amount of rotation created by rotateZ() is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
+            <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
+            <blockquote><p><em><code>rotateZ(a)</code> is equivalent to <code>rotate(a)</code> or <code>rotate3d(0, 0, 1, a)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ</a></em></p>
 
-    <section id="info-rotate-2d">
-        <h2>Rotation (2D)</h2>
+            <hr />
+        </section>
 
-        <h3><code>rotate()</code> <small>Rotates an element around a fixed point on the 2D plane.</small></h3>
-        <p>The <code>rotate()</code> CSS function defines a transformation that rotates an element around a fixed point on the 2D plane, without deforming it. The amount of rotation created by <code>rotate()</code> is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise. (A rotation by 180° is called point reflection.)</p>
-        <p>The axis of rotation passes through an origin, defined by the <code>transform-origin</code> CSS property.</p>
-        <p> &mdash; <em>More info: <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotate</a></em></p>
+        <section id="info-perspective">
+            <h2>Perspective</h2>
 
-        <hr />
-    </section>
+            <h3><code>perspective()</code> <small>Sets the distance between the user and the z=0 plane.</small></h3>
+            <p>The <code>perspective()</code> CSS function defines a transformation that sets the distance between the user and the z=0 plane.</p>
+            <p>The perspective distance used by <code>perspective()</code> is specified by a <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a></em> value (a number followed by a length unit: em, rem, px, pt, mm&hellip;), which represents the distance between the user and the z=0 plane. A positive value makes the element appear closer to the user, a negative value farther.</p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/perspective">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/perspective</a></em></p>
 
-    <section id="info-rotate-3d">
-        <h2>Rotation (3D)</h2>
+            <hr />
+        </section>
 
-        <h3><code>rotateX()</code> <small>Rotates an element around the horizontal axis.</small></h3>
-        <p>The <code>rotateX()</code> CSS function defines a transformation that rotates an element around the abscissa (horizontal axis) without deforming it. The amount of rotation created by <code>rotateX()</code> is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
-        <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
-        <blockquote><p><em><code>rotateX(a)</code> is equivalent to <code>rotate3d(1, 0, 0, a)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateX</a></em></p>
+        <section id="info-scale">
+            <h2>Scaling (Resizing)</h2>
 
-        <h3><code>rotateY()</code> <small>Rotates an element around the vertical axis.</small></h3>
-        <p>The <code>rotateY()</code> CSS function defines a transformation that rotates an element around the ordinate (vertical axis) without deforming it. The amount of rotation created by rotateY() is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
-        <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
-        <blockquote><p><em><code>rotateY(a)</code> is equivalent to <code>rotate3d(0, 1, 0, a)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY">developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateY</a></em></p>
-
-        <h3><code>rotateZ()</code> <small>Rotates an element around the z-axis.</small></h3>
-        <p>The <code>rotateZ()</code> CSS function defines a transformation that rotates an element around the z-axis without deforming it.</p>
-        <p>The amount of rotation created by rotateZ() is specified by an <em>angle value</em> expressed in degrees, gradians, radians, or turns. If positive, the movement will be clockwise; if negative, it will be counter-clockwise.</p>
-        <p>The axis of rotation passes through an origin, defined by the transform-origin CSS property.</p>
-        <blockquote><p><em><code>rotateZ(a)</code> is equivalent to <code>rotate(a)</code> or <code>rotate3d(0, 0, 1, a)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/rotateZ</a></em></p>
-
-        <hr />
-    </section>
-
-    <section id="info-perspective">
-        <h2>Perspective</h2>
-
-        <h3><code>perspective()</code> <small>Sets the distance between the user and the z=0 plane.</small></h3>
-        <p>The <code>perspective()</code> CSS function defines a transformation that sets the distance between the user and the z=0 plane.</p>
-        <p>The perspective distance used by <code>perspective()</code> is specified by a <em><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/length">length</a></em> value (a number followed by a length unit: em, rem, px, pt, mm&hellip;), which represents the distance between the user and the z=0 plane. A positive value makes the element appear closer to the user, a negative value farther.</p>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/perspective">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/perspective</a></em></p>
-
-        <hr />
-    </section>
-
-    <section id="info-scale">
-        <h2>Scaling (Resizing)</h2>
-
-        <h3><code>scale()</code> <small>Scales an element up or down on the 2D plane.</small></h3>
-        <p>The <code>scale()</code> CSS function defines a transformation that resizes an element on the 2D plane. Because the amount of scaling is defined by a vector, it can resize the horizontal and vertical dimensions at different scales.</p>
-        <p>This scaling transformation is characterized by a two-dimensional vector. Its coordinates define how much scaling is done in each direction. If both coordinates are equal, the scaling is uniform (isotropic) and the aspect ratio of the element is preserved (this is a homothetic transformation).</p>
-        <p>When a coordinate value is outside the [-1, 1] range, the element grows along that dimension; when inside, it shrinks. If it is negative, the result a point reflection in that dimension. A value of 1 has no effect.</p>
-        <blockquote><p><em>The <code>scale()</code> function only scales in 2D. To scale in 3D, use <code>scale3d()</code> instead.</em></p></blockquote>
-        <p>The <code>scale()</code> function is specified with either one or two values, which represent the amount of scaling to be applied in each direction.</p>
+            <h3><code>scale()</code> <small>Scales an element up or down on the 2D plane.</small></h3>
+            <p>The <code>scale()</code> CSS function defines a transformation that resizes an element on the 2D plane. Because the amount of scaling is defined by a vector, it can resize the horizontal and vertical dimensions at different scales.</p>
+            <p>This scaling transformation is characterized by a two-dimensional vector. Its coordinates define how much scaling is done in each direction. If both coordinates are equal, the scaling is uniform (isotropic) and the aspect ratio of the element is preserved (this is a homothetic transformation).</p>
+            <p>When a coordinate value is outside the [-1, 1] range, the element grows along that dimension; when inside, it shrinks. If it is negative, the result a point reflection in that dimension. A value of 1 has no effect.</p>
+            <blockquote><p><em>The <code>scale()</code> function only scales in 2D. To scale in 3D, use <code>scale3d()</code> instead.</em></p></blockquote>
+            <p>The <code>scale()</code> function is specified with either one or two values, which represent the amount of scaling to be applied in each direction.</p>
 <div><pre><code class="language-css">scale(sx)
 scale(sx, sy)
 /*
 - sx : A number representing the abscissa of the scaling vector.
 - sy : A number representing the ordinate of the scaling vector. If not defined, its default value is sx, resulting in a uniform scaling that preserves the element&#39;s aspect ratio.
 */</code></pre></div>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale</a></em></p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scale</a></em></p>
 
-        <h3><code>scaleX()</code> <small>Scales an element up or down horizontally.</small></h3>
-        <p>The <code>scaleX()</code> CSS function defines a transformation that resizes an element along the x-axis (horizontally).</p>
-        <p>It modifies the abscissa of each element point by a constant factor, except when the scale factor is 1, in which case the function is the identity transform. The scaling is not isotropic, and the angles of the element are not conserved. scaleX(-1) defines an axial symmetry, with a vertical axis passing through the origin (as specified by the <code>transform-origin</code> property).</p>
-        <blockquote><p><em><code>scaleX(sx)</code> is equivalent to <code>scale(sx, 1)</code> or <code>scale3d(sx, 1, 1)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleX</a></em></p>
+            <h3><code>scaleX()</code> <small>Scales an element up or down horizontally.</small></h3>
+            <p>The <code>scaleX()</code> CSS function defines a transformation that resizes an element along the x-axis (horizontally).</p>
+            <p>It modifies the abscissa of each element point by a constant factor, except when the scale factor is 1, in which case the function is the identity transform. The scaling is not isotropic, and the angles of the element are not conserved. scaleX(-1) defines an axial symmetry, with a vertical axis passing through the origin (as specified by the <code>transform-origin</code> property).</p>
+            <blockquote><p><em><code>scaleX(sx)</code> is equivalent to <code>scale(sx, 1)</code> or <code>scale3d(sx, 1, 1)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleX</a></em></p>
 
-        <h3><code>scaleY()</code> <small>Scales an element up or down vertically.</small></h3>
-        <p>The <code>scaleY()</code> CSS function defines a transformation that resizes an element along the y-axis (vertically).</p>
-        <p>It modifies the ordinate of each element point by a constant factor, except when the scale factor is 1, in which case the function is the identity transform. The scaling is not isotropic, and the angles of the element are not conserved. scaleY(-1) defines an axial symmetry, with a horizontal axis passing through the origin (as specified by the transform-origin property).</p>
-        <blockquote><p><em><code>scaleY(sy)</code> is equivalent to <code>scale(1, sy)</code> or <code>scale3d(1, sy, 1)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleY</a></em></p>
+            <h3><code>scaleY()</code> <small>Scales an element up or down vertically.</small></h3>
+            <p>The <code>scaleY()</code> CSS function defines a transformation that resizes an element along the y-axis (vertically).</p>
+            <p>It modifies the ordinate of each element point by a constant factor, except when the scale factor is 1, in which case the function is the identity transform. The scaling is not isotropic, and the angles of the element are not conserved. scaleY(-1) defines an axial symmetry, with a horizontal axis passing through the origin (as specified by the transform-origin property).</p>
+            <blockquote><p><em><code>scaleY(sy)</code> is equivalent to <code>scale(1, sy)</code> or <code>scale3d(1, sy, 1)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/scaleY</a></em></p>
 
-        <hr />
-    </section>
+            <hr />
+        </section>
 
-    <section id="info-translate">
-        <h2>Translation (Moving)</h2>
+        <section id="info-translate">
+            <h2>Translation (Moving)</h2>
 
-        <h3><code>translate()</code> <small>Translates an element on the 2D plane.</small></h3>
-        <p>The <code>translate()</code> CSS function repositions an element in the horizontal and/or vertical directions.</p>
-        <p>This transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction.</p>
-        <p>The <code>translate()</code> function is specified as either one or two values.</p>
+            <h3><code>translate()</code> <small>Translates an element on the 2D plane.</small></h3>
+            <p>The <code>translate()</code> CSS function repositions an element in the horizontal and/or vertical directions.</p>
+            <p>This transformation is characterized by a two-dimensional vector. Its coordinates define how much the element moves in each direction.</p>
+            <p>The <code>translate()</code> function is specified as either one or two values.</p>
 <div><pre><code class="language-css">translate(tx)
 translate(tx, ty)
 
@@ -299,57 +291,58 @@ translate(tx, ty)
 - tx : Is a length value representing the abscissa (x-coordinate) of the translating vector.
 - ty : Is a length value representing the ordinate of the translating vector (or y-coordinate). If unspecified, its default value is 0. For example, translate(2) is equivalent to translate(2, 0).
 */</code></pre></div>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate</a></em></p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translate</a></em></p>
 
-        <h3><code>translateX()</code> <small>Translates an element horizontally.</small></h3>
-        <p>The <code>translateX()</code> CSS function repositions an element horizontally on the 2D plane.</p>
-        <p>Syntax : <code>translateX(t)</code>. <em>(<code>t</code> is a length value representing the abscissa of the translating vector.)</em></p>
-        <blockquote><p><code>translateX(tx)</code> is equivalent to <code>translate(tx, 0)</code> or <code>translate3d(tx, 0, 0)</code>.</p></blockquote>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateX</a></em></p>
+            <h3><code>translateX()</code> <small>Translates an element horizontally.</small></h3>
+            <p>The <code>translateX()</code> CSS function repositions an element horizontally on the 2D plane.</p>
+            <p>Syntax : <code>translateX(t)</code>. <em>(<code>t</code> is a length value representing the abscissa of the translating vector.)</em></p>
+            <blockquote><p><code>translateX(tx)</code> is equivalent to <code>translate(tx, 0)</code> or <code>translate3d(tx, 0, 0)</code>.</p></blockquote>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateX</a></em></p>
 
-        <h3><code>translateY()</code> <small>Translates an element vertically.</small></h3>
-        <p>The <code>translateY()</code> CSS function repositions an element vertically on the 2D plane. </p>
-        <blockquote><p><code>translateY(ty)</code> is equivalent to <code>translate(0, ty)</code> or <code>translate3d(0, ty, 0)</code>.</p></blockquote>
-        <p>Syntax : <code>translateY(t)</code>. <em>(<code>t</code> is a length value representing the ordinate of the translating vector.)</em></p>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY</a></em></p>
+            <h3><code>translateY()</code> <small>Translates an element vertically.</small></h3>
+            <p>The <code>translateY()</code> CSS function repositions an element vertically on the 2D plane. </p>
+            <blockquote><p><code>translateY(ty)</code> is equivalent to <code>translate(0, ty)</code> or <code>translate3d(0, ty, 0)</code>.</p></blockquote>
+            <p>Syntax : <code>translateY(t)</code>. <em>(<code>t</code> is a length value representing the ordinate of the translating vector.)</em></p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/translateY</a></em></p>
 
-        <hr />
-    </section>
+            <hr />
+        </section>
 
-    <section id="info-skew">
-        <h2>Skewing (Distortion)</h2>
+        <section id="info-skew">
+            <h2>Skewing (Distortion)</h2>
 
-        <h3><code>skew()</code> <small>Skews an element on the 2D plane.</small></h3>
-        <p>The skew() CSS function defines a transformation that skews an element on the 2D plane.</p>
-        <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the horizontal and vertical directions. The coordinates of each point are modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
-        <p>The skew() function is specified with either one or two values, which represent the amount of skewing to be applied in each direction.</p>
+            <h3><code>skew()</code> <small>Skews an element on the 2D plane.</small></h3>
+            <p>The skew() CSS function defines a transformation that skews an element on the 2D plane.</p>
+            <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the horizontal and vertical directions. The coordinates of each point are modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
+            <p>The skew() function is specified with either one or two values, which represent the amount of skewing to be applied in each direction.</p>
 <div><pre><code class="language-css">skew(ax)
 skew(ax, ay)
 /*
 - ax : Is an angle value expressed in degrees, gradians, radians, or turns; representing the angle to use to distort the element along the abscissa.
 - ay : Is an angle value expressed in degrees, gradians, radians, or turns; representing the angle to use to distort the element along the ordinate. If not defined, its default value is 0, resulting in a purely horizontal skewing.
 */</code></pre></div>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew</a></em></p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skew</a></em></p>
 
-        <h3><code>skewX()</code> : <small>Skews an element in the horizontal direction.</small></h3>
-        <p>The skewX() CSS function defines a transformation that skews an element in the horizontal direction on the 2D plane.</p>
-        <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the horizontal direction. The abscissa coordinate of each point is modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
-        <blockquote><p><em><code>skewX(a)</code> is equivalent to <code>skew(a)</code>.</em></p></blockquote>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewX</a></em></p>
+            <h3><code>skewX()</code> : <small>Skews an element in the horizontal direction.</small></h3>
+            <p>The skewX() CSS function defines a transformation that skews an element in the horizontal direction on the 2D plane.</p>
+            <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the horizontal direction. The abscissa coordinate of each point is modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
+            <blockquote><p><em><code>skewX(a)</code> is equivalent to <code>skew(a)</code>.</em></p></blockquote>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewX">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewX</a></em></p>
 
-        <h3><code>skewY()</code> <small>Skews an element in the vertical direction.</small></h3>
-        <p>The skewY() CSS function defines a transformation that skews an element in the vertical direction on the 2D plane.</p>
-        <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the vertical direction. The ordinate coordinate of each point is modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
-        <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewY</a></em></p>
+            <h3><code>skewY()</code> <small>Skews an element in the vertical direction.</small></h3>
+            <p>The skewY() CSS function defines a transformation that skews an element in the vertical direction on the 2D plane.</p>
+            <p>This transformation is a shear mapping (<a href="https://en.wikipedia.org/wiki/Shear_mapping">transvection</a>) that distorts each point within an element by a certain angle in the vertical direction. The ordinate coordinate of each point is modified by a value proportionate to the specified angle and the distance to the origin; thus, the farther from the origin a point is, the greater will be the value added it.</p>
+            <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewY">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-function/skewY</a></em></p>
 
+            <hr />
+        </section>
+    </article>
+
+    <footer>
+        {{ ... }}
         <hr />
-    </section>
-</article>
-
-<footer>
-    {{ ... }}
-    <hr />
-</footer>
+    </footer>
+</div>
 
 <script src="../node_modules/vue/dist/vue.js"></script>
 <script src="js/app.js"></script>
