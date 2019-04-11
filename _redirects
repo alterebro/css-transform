@@ -1,0 +1,2 @@
+# Redirect default Netlify subdomain to primary domain
+https://css-transform.netlify.com/* https://css-transform.moro.es/:splat 301!

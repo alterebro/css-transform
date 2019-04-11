@@ -31,5 +31,9 @@ function scripts() {
     .pipe(uglify())
     .pipe(dest('dist/js'));
 }
+function files() {
+    return src('_redirects')
+    .pipe(dest('dist/'));
+}
 
-exports.build = parallel(styles, html, scripts);
+exports.build = parallel(styles, html, scripts, files);
