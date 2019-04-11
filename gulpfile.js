@@ -3,6 +3,7 @@ const less = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
 const cssnano = require('gulp-cssnano');
 const htmlmin = require('gulp-htmlmin');
+const replace = require('gulp-replace');
 const babel = require('gulp-babel');
 const uglify = require('gulp-uglify');
 
@@ -17,6 +18,7 @@ function styles() {
 }
 function html() {
     return src('src/index.html')
+        .pipe(replace(/..\/node_modules\/vue\/dist\/vue.js/g, 'js/vue.min.js'))
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true
@@ -31,9 +33,13 @@ function scripts() {
     .pipe(uglify())
     .pipe(dest('dist/js'));
 }
-function files() {
+function redirects_file() {
     return src('_redirects')
     .pipe(dest('dist/'));
 }
+function vue_file() {
+    return src('node_modules/vue/dist/vue.min.js')
+    .pipe(dest('dist/js'));
+}
 
-exports.build = parallel(styles, html, scripts, files);
+exports.build = parallel(styles, html, scripts, redirects_file, vue_file);
