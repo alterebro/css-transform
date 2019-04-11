@@ -29,6 +29,8 @@ body {
     font-family: @font-sans;
     font-size: 1.6em;
     line-height: 1.6;
+    background: #222;
+    color: #ccc;
 }
 html, body {
 	height: 100%;
@@ -59,7 +61,7 @@ input[type="radio"] {
 
 
 a {
-    color: #069;
+    color: #09c;
     text-decoration: none;
     background-color: transparent;
 }
@@ -91,8 +93,8 @@ header {
     right: 0;
     height: 100px;
     width: 100%;
-    max-width: 420px;
-    background: rgba(0, 0, 256, .25);
+    max-width: 380px;
+    background: rgba(0, 0, 0, .5);
     padding: 2rem;
     line-height: 1.2;
 
@@ -106,8 +108,8 @@ aside {
     right: 0;
     height: ~"calc(100% - 100px)";
     width: 100%;
-    max-width: 420px;
-    background: rgba(0, 96, 0, .25);
+    max-width: 380px;
+    background: rgba(0, 0, 0, .25);
     overflow: auto;
 
     form {
@@ -121,9 +123,68 @@ aside {
                 font-size: 1.8rem;
                 font-weight: 700;
             }
-            > dl dt { margin-top: 1.5rem; }
+
+            > dl {
+                dt {
+                    margin-top: 1.5rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    line-height: 25px;
+
+                    > label {
+                        flex: 1 1 auto;
+                        border: solid rgba(255, 255, 255, .1) 1px;
+                        position: relative;
+                        padding-left: 25px;
+                        cursor: pointer;
+
+                        input[type="checkbox"] + strong:before {
+                            content: '';
+                            display: block;
+                            width: 15px;
+                            height: 15px;
+                            background: transparent;
+                            border: solid #777 2px;
+                            border-radius: 1px;
+                            position: absolute;
+                            left: 0;
+                            top: 5px;
+                        }
+                        input[type="checkbox"]:checked + strong:before {
+                            background: #0cf;
+                        }
+                        input[type="checkbox"] { display: none; }
+                    }
+                    > a {
+                        flex: 0 0 auto;
+                        border: solid rgba(255, 255, 255, .1) 1px;
+                        display: block;
+                        padding: 0 5px;
+                    }
+                }
+
+                dd:not(.buttons) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
+
+                dd {
+                    padding: .5rem 0;
+                    button {
+                        background: #09c;
+                        border: none;
+                        border-radius: 3px;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                }
+            }
+
             > p { margin-top: 1.5rem; }
         }
+
     }
 }
 main {
@@ -142,7 +203,7 @@ main {
         display: inline-block;
         height: 80vh;
         width: 80vh; // 80vw
-        background: rgba(0, 0, 0, .25);
+        background: rgba(0, 0, 0, .65);
     }
     hr {
         display: none;
