@@ -34,7 +34,7 @@ function scripts() {
     .pipe(dest('dist/js'));
 }
 function redirects_file() {
-    return src('_redirects')
+    return src('src/_redirects')
     .pipe(dest('dist/'));
 }
 function vue_file() {
