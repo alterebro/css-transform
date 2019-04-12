@@ -60,6 +60,86 @@ input[type="radio"] {
 }
 
 
+// -----------------------------------------
+// Input range styling : input[type="range"]
+@range-height : 12px;
+@range-track-bg : #555;
+@range-track-active-bg : darken(@range-track-bg, 5%);
+@range-handler-bg : #3ac;
+@range-handler-active-bg : #fff;
+
+.appears-like(@value) {
+    -webkit-appearance: @value;
+    -moz-appearance: @value;
+    appearance: @value;
+}
+.appears-clean() {
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+.range-input-reset() {
+    .appears-like(none);
+    .appears-clean()
+}
+.range-track() {
+    height: @range-height;
+    width: 100%;
+    background: @range-track-bg;
+    cursor: pointer;
+    .range-input-reset();
+}
+.range-track-active() { background: @range-track-active-bg; }
+.range-handler() {
+    height: @range-height;
+    width: @range-height;
+    background: @range-handler-bg;
+    cursor: pointer;
+    .range-input-reset();
+}
+.range-handler-active() { background: @range-handler-active-bg; }
+
+input[type="range"] {
+    .range-input-reset();
+    height: @range-height;
+    background: @range-track-bg;
+
+    // Slider / Track
+    &::-webkit-slider-runnable-track { .range-track() }
+    &::-moz-range-track { .range-track() }
+    &::-ms-track { .range-track() }
+    &::-ms-fill-lower,
+    &::-ms-fill-upper {
+        background: @range-track-bg;
+        .appears-clean();
+    }
+
+    // Handler
+    &::-webkit-slider-thumb { .range-handler() }
+    &::-moz-range-thumb { .range-handler() }
+    &::-ms-thumb { .range-handler() }
+
+    &:focus { outline: none; }
+    &:hover {
+
+        &::-webkit-slider-runnable-track { .range-track-active() }
+        &::-moz-range-track { .range-track-active() }
+        &::-ms-fill-lower { .range-track-active() }
+        &::-ms-fill-upper { .range-track-active() }
+
+        &::-webkit-slider-thumb { .range-handler-active() }
+        &::-moz-range-thumb { .range-handler-active() }
+        &::-ms-thumb { .range-handler-active() }
+    }
+
+    // Normalizing...
+    &::-moz-focus-outer { border: 0; }
+}
+// -----------------------------------------
+
+
+
+
 a {
     color: #09c;
     text-decoration: none;
