@@ -23,7 +23,7 @@
 
                     <!-- Rotate 2D -->
                     <dt>
-                        <label for="rotate-2d">
+                        <label for="rotate-2d" class="checkboxed">
                             <input type="checkbox" id="rotate-2d" />
                             <strong>Rotate 2D</strong>
                         </label>
@@ -31,7 +31,7 @@
                     </dt>
                     <dd>
                         <label for="rotate-2d-range">rotate (2D)</label>
-                        <input type="range" id="rotate-2d-range" />
+                        <input type="range" id="rotate-2d-range" min="0" max="360" step="1" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -41,7 +41,7 @@
 
                     <!-- Rotate 3D -->
                     <dt>
-                        <label for="rotate-3d">
+                        <label for="rotate-3d" class="checkboxed">
                             <input type="checkbox" id="rotate-3d" />
                             <strong>Rotate 3D</strong>
                         </label>
@@ -49,17 +49,17 @@
                     </dt>
                     <dd>
                         <label for="rotate-3d-range-x">rotate (x)</label>
-                        <input type="range" id="rotate-3d-range-x" />
+                        <input type="range" id="rotate-3d-range-x" min="0" max="360" step="1" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="rotate-3d-range-y">rotate (y)</label>
-                        <input type="range" id="rotate-3d-range-y" />
+                        <input type="range" id="rotate-3d-range-y" min="0" max="360" step="1" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="rotate-3d-range-z">rotate (z)</label>
-                        <input type="range" id="rotate-3d-range-z" />
+                        <input type="range" id="rotate-3d-range-z" min="0" max="360" step="1" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -69,7 +69,7 @@
 
                     <!-- Perspective -->
                     <dt>
-                        <label for="perspective">
+                        <label for="perspective" class="checkboxed">
                             <input type="checkbox" id="perspective" />
                             <strong>Perspective</strong>
                         </label>
@@ -77,7 +77,7 @@
                     </dt>
                     <dd>
                         <label for="perspective-range">perspective</label>
-                        <input type="range" id="perspective-range" />
+                        <input type="range" id="perspective-range" min="300" max="2300" step="100" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -87,7 +87,7 @@
 
                     <!-- Transform Origin -->
                     <dt>
-                        <label for="transform-origin">
+                        <label for="transform-origin" class="checkboxed">
                             <input type="checkbox" id="transform-origin" />
                             <strong>Transform Origin</strong>
                         </label>
@@ -95,17 +95,17 @@
                     </dt>
                     <dd>
                         <label for="transform-x-range">transform-origin (x)</label>
-                        <input type="range" id="transform-x-range" />
+                        <input type="range" id="transform-x-range" min="0" max="100" step="1" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="transform-y-range">transform-origin (y)</label>
-                        <input type="range" id="transform-y-range" />
+                        <input type="range" id="transform-y-range" min="0" max="100" step="1" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="transform-z-range">transform-origin (z)</label>
-                        <input type="range" id="transform-z-range" />
+                        <input type="range" id="transform-z-range" min="-250" max="250" step="10" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -115,7 +115,7 @@
 
                     <!-- Scale -->
                     <dt>
-                        <label for="scale">
+                        <label for="scale" class="checkboxed">
                             <input type="checkbox" id="scale" />
                             <strong>Scale</strong>
                         </label>
@@ -123,7 +123,7 @@
                     </dt>
                     <dd>
                         <label for="scale-range">scale</label>
-                        <input type="range" id="scale-range" />
+                        <input type="range" id="scale-range" min="0.5" max="2" step=".1" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -133,7 +133,7 @@
 
                     <!-- Translate -->
                     <dt>
-                        <label for="translate">
+                        <label for="translate" class="checkboxed">
                             <input type="checkbox" id="translate" />
                             <strong>Translate</strong>
                         </label>
@@ -141,12 +141,12 @@
                     </dt>
                     <dd>
                         <label for="translate-x-range">translate-x</label>
-                        <input type="range" id="translate-x-range" />
+                        <input type="range" id="translate-x-range" min="-100" max="100" step="10" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="translate-y-range">translate-y</label>
-                        <input type="range" id="translate-y-range" />
+                        <input type="range" id="translate-y-range" min="-100" max="100" step="10" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
@@ -156,7 +156,7 @@
 
                     <!-- Skew -->
                     <dt>
-                        <label for="skew">
+                        <label for="skew" class="checkboxed">
                             <input type="checkbox" id="skew" />
                             <strong>Skew</strong>
                         </label>
@@ -164,12 +164,12 @@
                     </dt>
                     <dd>
                         <label for="skew-x-range">skew-x</label>
-                        <input type="range" id="skew-x-range" />
+                        <input type="range" id="skew-x-range" min="0" max="180" step="1" />
                         <code>...</code>
                     </dd>
                     <dd>
                         <label for="skew-y-range">skew-y</label>
-                        <input type="range" id="skew-y-range" />
+                        <input type="range" id="skew-y-range" min="0" max="180" step="1" />
                         <code>...</code>
                     </dd>
                     <dd class="buttons">
