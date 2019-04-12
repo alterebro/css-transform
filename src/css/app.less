@@ -1,6 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
-@font-sans : -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
-@font-mono : "Andale Mono", "Monaco", "Lucida Console", "Menlo", "Consolas", "Roboto Mono", "Liberation Mono", monospace;
+@sans : -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
+@mono : "Andale Mono", "Monaco", "Lucida Console", "Menlo", "Consolas", "Roboto Mono", "Liberation Mono", monospace;
+
+@font-sans : "Inconsolata", @mono;
+@font-mono : "Inconsolata", @mono;
+
+@color-bg       : #1a1718;
+@color-fg       : #e0e1e4;
+@color-alpha    : #05889f;
+@color-beta     : #c05805;
 
 // --------------------------------------------
 // Pseudo-Reset
@@ -37,8 +46,8 @@ body {
     font-family: @font-sans;
     font-size: 1.6em;
     line-height: 1.6;
-    background: #222;
-    color: #ccc;
+    background: @color-bg;
+    color: @color-fg;
 }
 html, body {
 	height: 100%;
@@ -54,16 +63,16 @@ template, [hidden] { display: none; }
 hr { display: none; }
 
 a {
-    color: #09c;
+    color: @color-alpha;
     text-decoration: none;
     background-color: transparent;
 }
-a:hover { color: #fff; }
+a:hover { color: @color-beta; }
 a:active, a:hover { outline: 0; }
 
 pre, code, kbd, samp {
 	font-family: @font-mono;
-	font-size: .9em;
+	// font-size: .9em;
 }
 
 
@@ -84,9 +93,9 @@ pre, code, kbd, samp {
 // -----------------------------------------
 // Input range styling : input[type="range"]
 @range-height : 12px;
-@range-track-bg : #555;
-@range-track-active-bg : darken(@range-track-bg, 5%);
-@range-handler-bg : #3ac;
+@range-track-bg : lighten(@color-bg, 5%);
+@range-track-active-bg : lighten(@color-bg, 10%);
+@range-handler-bg : @color-alpha;
 @range-handler-active-bg : #fff;
 
 .appears-like(@value) {
@@ -96,7 +105,7 @@ pre, code, kbd, samp {
 }
 .appears-clean() {
     border: none;
-    border-radius: 0;
+    border-radius: 2px;
     box-shadow: none;
 }
 .range-input-reset() {
@@ -162,14 +171,14 @@ input[type="range"] {
 button {
     display: inline-block;
     padding: 0 10px;
-    background: #09c;
+    background: #089;
     border: none;
-    // border-radius: 2px;
-    color: #eee;
+    border-radius: 2px;
+    color: rgba(255, 255, 255, .8);
     cursor: pointer;
 
     &:hover {
-        background: #069;
+        background: @color-beta;
         color: #fff;
     }
 }
@@ -181,6 +190,7 @@ label.checkboxed {
     padding-left: 35px;
     cursor: pointer;
 
+    input[type="checkbox"] { display: none; }
     input[type="checkbox"] + strong:before {
         content: '';
         display: block;
@@ -192,18 +202,26 @@ label.checkboxed {
         left: 10px;
         top: 50%;
         margin-top: -6px;
+        border-radius: 2px;
     }
     input[type="checkbox"]:checked + strong:before {
-        background: #0cf;
-        box-shadow: inset 0 0 0 1px #000;
+        background: @color-alpha;
+        box-shadow: inset 0 0 0 2px #000;
     }
-    input[type="checkbox"] { display: none; }
+    &:hover input[type="checkbox"]:checked + strong:before { background: @color-beta; }
 }
-
 
 // -----------------------
 
-
+#app {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 1.3rem;
+}
 header {
     position: fixed;
     top: 0;
@@ -213,11 +231,17 @@ header {
     max-width: 420px;
     background: rgba(0, 0, 0, .5);
     padding: 2rem;
-    line-height: 1.2;
+    box-shadow: inset 0 5px 0 @color-beta;
 
-    h1 {}
-    p {}
+    h1 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        letter-spacing: .1rem;
+        line-height: 1.2;
+    }
+    p { line-height: 1.4; }
 }
+
 aside {
     z-index: 1;
     position: fixed;
@@ -230,16 +254,12 @@ aside {
     overflow: auto;
 
     form {
-        font-size: 1.2rem;
         padding: 2rem;
 
         fieldset {
             border: none;
 
-            > legend {
-                font-size: 1.8rem;
-                font-weight: 700;
-            }
+            > legend {}
 
             > dl {
                 dt {
@@ -251,46 +271,33 @@ aside {
                     background: rgba(0, 0, 0, .5);
                     border-radius: 3px;
 
-                    > label {
-                        flex: 1 1 auto;
-                    }
+                    > label { flex: 1 1 auto; }
                     > a {
                         flex: 0 0 auto;
                         display: block;
                         padding: 0 15px;
                     }
                 }
-                dd {
-                    padding: .5rem 0;
-                }
-
+                dd { padding: .5rem 0; }
                 dd:not(.buttons) {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
                 }
-                dd.buttons {
-                    text-align: right;
-                }
-
+                dd.buttons { text-align: right; }
             }
 
             > p { margin-top: 1.5rem; }
         }
-
     }
 }
 main {
-    position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    overflow: hidden;
-
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: inset 0 5px 0 @color-alpha;
 
     #box {
         display: inline-block;
@@ -298,15 +305,10 @@ main {
         width: 80vh; // 80vw
         background: rgba(0, 0, 0, .65);
     }
-    hr {
-        display: none;
-    }
 }
 article {
     display: none;
     max-width: 64rem;
     padding: 2vh;
 }
-footer {
-    display: none;
-}
+footer { display: none; }
