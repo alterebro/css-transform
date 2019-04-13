@@ -1,15 +1,58 @@
-@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
 @sans : -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Droid Sans", "Helvetica Neue", Arial, sans-serif;
 @mono : "Andale Mono", "Monaco", "Lucida Console", "Menlo", "Consolas", "Roboto Mono", "Liberation Mono", monospace;
-
 @font-sans : "Inconsolata", @mono;
-@font-mono : "Inconsolata", @mono;
+@font-mono : @font-sans;
 
-@color-bg       : #1a1718;
-@color-fg       : #e0e1e4;
-@color-alpha    : #05889f;
-@color-beta     : #c05805;
+// Colurs
+@color-bg           : #1a1718;
+@color-bg-light     : lighten(@color-bg, 10%);
+@color-bg-dark      : #000;
+@color-fg           : #e0e1e4;
+@color-fg-light     : #fff;
+@color-fg-dark      : darken(@color-fg, 25%);
+@color-alpha        : #25a8bf; // #05889f;
+@color-alpha-light  : lighten(spin(@color-alpha, -20), 5%);
+@color-alpha-dark   : darken(spin(@color-alpha, 10), 5%);
+@color-beta         : #d06815; // #c05805;
+@color-beta-light   : lighten(spin(@color-beta, 15), 5%);
+@color-beta-dark    : darken(spin(@color-beta, -10), 5%);
+
+
+// --------------------------------------------
+// Colour Palette
+[class^="c-"] {
+    display: block;
+    height: 24px;
+    width: 24px;
+    margin: 0px;
+    background: #000;
+    box-shadow:
+        inset 0 0 0 1px #000
+        ,0 0 0 1px rgba(255, 255, 255, .15);
+
+    display: none;
+}
+.c-a0 { background: @color-alpha-light; }
+.c-a1 { background: @color-alpha; }
+.c-a2 { background: @color-alpha-dark; }
+
+.c-b0 { background: @color-beta-light; }
+.c-b1 { background: @color-beta; }
+.c-b2 { background: @color-beta-dark; }
+
+.c-c0 { background: @color-bg-light; }
+.c-c1 { background: @color-bg; }
+.c-c2 { background: @color-bg-dark; }
+
+.c-d0 { background: @color-fg-light; }
+.c-d1 { background: @color-fg; }
+.c-d2 { background: @color-fg-dark; }
+
+
+
 
 // --------------------------------------------
 // Pseudo-Reset
@@ -93,10 +136,10 @@ pre, code, kbd, samp {
 // -----------------------------------------
 // Input range styling : input[type="range"]
 @range-height : 12px;
-@range-track-bg : lighten(@color-bg, 5%);
-@range-track-active-bg : lighten(@color-bg, 10%);
+@range-track-bg : @color-bg-light;
+@range-track-active-bg : @color-bg-light;
 @range-handler-bg : @color-alpha;
-@range-handler-active-bg : #fff;
+@range-handler-active-bg : @color-alpha-light;
 
 .appears-like(@value) {
     -webkit-appearance: @value;
@@ -171,15 +214,15 @@ input[type="range"] {
 button {
     display: inline-block;
     padding: 0 10px;
-    background: #089;
+    background: @color-alpha;
     border: none;
     border-radius: 2px;
-    color: rgba(255, 255, 255, .8);
+    color: fade(@color-fg-light, 80%);
     cursor: pointer;
 
     &:hover {
         background: @color-beta;
-        color: #fff;
+        color: @color-fg-light;
     }
 }
 
@@ -197,7 +240,7 @@ label.checkboxed {
         width: 12px;
         height: 12px;
         background: transparent;
-        border: solid #777 1px;
+        border: solid @color-fg-dark 1px;
         position: absolute;
         left: 10px;
         top: 50%;
@@ -208,7 +251,7 @@ label.checkboxed {
         background: @color-alpha;
         box-shadow: inset 0 0 0 2px #000;
     }
-    &:hover input[type="checkbox"]:checked + strong:before { background: @color-beta; }
+    &:hover input[type="checkbox"]:checked + strong:before { background: @color-alpha-light; }
 }
 
 // -----------------------
@@ -221,23 +264,34 @@ label.checkboxed {
     height: 100%;
     overflow: hidden;
     font-size: 1.3rem;
+    box-shadow: inset 0 4px 0 @color-alpha, inset 0 5px 0 #000;
 }
+
+@aside-bg : rgba(0, 0, 0, .25);
+@aside-width : 42rem;
+
 header {
     position: fixed;
     top: 0;
     right: 0;
     height: 100px;
     width: 100%;
-    max-width: 420px;
-    background: rgba(0, 0, 0, .5);
+    max-width: @aside-width;
+    background: @aside-bg;
     padding: 2rem;
-    box-shadow: inset 0 5px 0 @color-beta;
+    box-shadow:
+        inset 0 4px 0 @color-alpha,
+        inset 0 5px 0 #000;
+
+    border-bottom: dotted @color-alpha 1px;
+
 
     h1 {
         font-size: 2.2rem;
         font-weight: 700;
         letter-spacing: .1rem;
-        line-height: 1.2;
+        line-height: 1;
+        margin: 0 0 2px;
     }
     p { line-height: 1.4; }
 }
@@ -249,8 +303,8 @@ aside {
     right: 0;
     height: ~"calc(100% - 100px)";
     width: 100%;
-    max-width: 420px;
-    background: rgba(0, 0, 0, .25);
+    max-width: @aside-width;
+    background: @aside-bg;
     overflow: auto;
 
     form {
@@ -268,7 +322,7 @@ aside {
                     justify-content: space-between;
                     align-items: center;
                     line-height: 30px;
-                    background: rgba(0, 0, 0, .5);
+                    background: @color-bg-dark;
                     border-radius: 3px;
 
                     > label { flex: 1 1 auto; }
@@ -297,13 +351,16 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: inset 0 5px 0 @color-alpha;
 
     #box {
         display: inline-block;
         height: 80vh;
         width: 80vh; // 80vw
-        background: rgba(0, 0, 0, .65);
+        background: @color-bg-dark;
+        box-shadow: inset 0 0 0 1px @color-bg-light;
+        padding: 1rem;
+
+        ul li { display: inline-block; }
     }
 }
 article {
