@@ -1,3 +1,13 @@
+// Media Queries
+@mobile-breakpoint  : 660px;
+@desktop-breakpoint : 960px;
+
+@mobile 	: ~"all and (max-width: @{mobile-breakpoint})"; 	// default
+@non-mobile : ~"all and (min-width: @{mobile-breakpoint})"; 	// matching both @tablet and @desktop
+@tablet 	: ~"all and (min-width: @{mobile-breakpoint}) and (max-width: @{desktop-breakpoint})";
+@desktop 	: ~"all and (min-width: @{desktop-breakpoint})";
+@portrait   : ~"all and (orientation: portrait)";
+@landscape  : ~"all and (orientation: landscape)";
 
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Inconsolata:400,700');
@@ -318,6 +328,7 @@ header {
         font-weight: 700;
         letter-spacing: .1rem;
         line-height: 1;
+        color: @color-fg-light;
         margin: 0 0 2px;
     }
     p { line-height: 1.4; }
@@ -374,20 +385,17 @@ aside {
                     justify-content: space-between;
 
                     label {
-                        // box-shadow: inset 0 0 0 1px #333;
                         display: inline-block;
                         padding-left: 10px;
                         min-width: 16rem;
                         flex: 0 0 16rem;
                     }
                     input {
-                        // box-shadow: inset 0 0 0 1px #333;
                         display: block;
                         width: 100%;
                         flex: 1 1 auto;
                     }
                     code {
-                        // box-shadow: inset 0 0 0 1px #333;
                         display: inline-block;
                         text-align: right;
                         padding: 0 10px 0 0;
@@ -406,6 +414,11 @@ aside {
                 margin-top: 2rem;
             }
         }
+
+        fieldset:last-child {
+            margin: 3rem 0 0 0;
+            p { margin: 1rem 0 0 0; }
+        }
     }
 }
 main {
@@ -418,12 +431,21 @@ main {
     #box {
         display: inline-block;
         height: 80vh;
-        width: 80vh; // 80vw
+        width: 80vh;
         background: fade(@color-bg-dark, 80%);
         box-shadow: inset 0 0 0 1px fade(@color-fg-light, 40%);
-        // padding: 1rem;
+        padding: 1rem;
 
         ul li { display: inline-block; }
+
+        @media @landscape {
+            height: 80vh;
+            width: 80vh;
+        }
+        @media @portrait {
+            height: 80vw;
+            width: 80vw;
+        }
     }
 }
 article {
