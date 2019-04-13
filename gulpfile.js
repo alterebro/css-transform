@@ -33,8 +33,8 @@ function scripts() {
     .pipe(uglify())
     .pipe(dest('dist/js'));
 }
-function redirects_file() {
-    return src('src/_redirects')
+function copy_files() {
+    return src(['src/_redirects', 'src/favicon.ico'])
     .pipe(dest('dist/'));
 }
 function vue_file() {
@@ -42,4 +42,4 @@ function vue_file() {
     .pipe(dest('dist/js'));
 }
 
-exports.build = parallel(styles, html, scripts, redirects_file, vue_file);
+exports.build = parallel(styles, html, scripts, copy_files, vue_file);
