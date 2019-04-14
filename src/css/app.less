@@ -43,7 +43,7 @@
         inset 0 0 0 1px #000
         ,0 0 0 1px rgba(255, 255, 255, .15);
 
-    display: none;
+    // display: none;
 }
 .c-a0 { background: @color-alpha-light; }
 .c-a1 { background: @color-alpha; }
@@ -155,7 +155,7 @@ pre {
 @range-track-bg : @color-bg-light;
 @range-track-active-bg : @color-bg-light;
 @range-handler-bg : @color-alpha;
-@range-handler-active-bg : @color-alpha-light;
+@range-handler-active-bg : @color-beta;
 
 .appears-like(@value) {
     -webkit-appearance: @value;
@@ -263,7 +263,7 @@ button {
 // Input Checkbox : input[type="checkbox"] / (Within label with <strong> sibling)
 label.checkboxed {
     position: relative;
-    padding-left: 35px;
+    padding-left: 30px;
     cursor: pointer;
 
     input[type="checkbox"] { display: none; }
@@ -297,7 +297,7 @@ label.checkboxed {
     height: 100%;
     overflow: hidden;
     font-size: 1.3rem;
-    box-shadow: inset 0 4px 0 @color-alpha, inset 0 5px 0 #000;
+    box-shadow: inset 0 4px 0 @color-alpha-light, inset 0 5px 0 #000;
 
     background-image:
         radial-gradient(circle farthest-side, fade(@color-alpha-dark, 50%), transparent),
@@ -309,7 +309,7 @@ label.checkboxed {
         center center;
 }
 
-@aside-bg : rgba(0, 0, 0, .5);
+@aside-bg : rgba(0, 0, 0, .65);
 @aside-width : 42rem;
 
 header {
@@ -327,7 +327,7 @@ header {
         inset 0 5px 0 #000,
         0 2px 0 0 rgba(0, 0, 0, .5);
 
-    border-bottom: dotted @color-alpha 1px;
+    border-bottom: solid fade(@color-alpha, 50%) 1px;
 
     h1 {
         font-size: 2.2rem;
@@ -363,6 +363,7 @@ aside {
             }
 
             > dl {
+                dt:first-child { margin-top: 1rem; }
                 dt {
                     margin: 1.5rem 0 .5rem 0;
                     display: flex;
@@ -392,9 +393,9 @@ aside {
 
                     label {
                         display: inline-block;
-                        padding-left: 10px;
-                        min-width: 16rem;
-                        flex: 0 0 16rem;
+                        padding-left: 5px;
+                        min-width: 14.5rem;
+                        flex: 0 0 14.5rem;
                     }
                     input {
                         display: block;
@@ -404,7 +405,7 @@ aside {
                     code {
                         display: inline-block;
                         text-align: right;
-                        padding: 0 10px 0 0;
+                        padding: 0 5px 0 0;
                         font-size: .9em;
                         flex: 0 0 5rem;
                         color: @color-fg-dark;
@@ -412,12 +413,18 @@ aside {
                 }
                 dd.buttons {
                     text-align: right;
-                    padding: .5rem 5rem 0 16rem;
+                    padding: .5rem 5rem 0 0;
                 }
             }
 
             > p {
                 margin-top: 2rem;
+                overflow: auto;
+
+                button {
+                    float: left;
+                    margin: 0 .5rem .5rem 0;
+                }
             }
         }
 
@@ -438,8 +445,8 @@ main {
         display: inline-block;
         height: 80vh;
         width: 80vh;
-        background: fade(@color-bg-dark, 80%);
-        box-shadow: inset 0 0 0 1px fade(@color-fg-light, 50%);
+        background: fade(@color-bg-dark, 50%);
+        box-shadow: inset 0 0 0 1px fade(@color-alpha, 50%);
         padding: 1rem;
 
         ul li { display: inline-block; }
