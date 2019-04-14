@@ -18,6 +18,7 @@ const App = new Vue({
             infoSections.forEach( (el) => {
 
                 Data.modal.content[el.id] = el.innerHTML;
+                el.addEventListener('click', (e) => e.stopPropagation() );
             });
             Data.modal.current = infoSections[0].id;
 
@@ -27,23 +28,41 @@ const App = new Vue({
 
                 el.addEventListener('click', (e) => {
                     e.preventDefault();
-                    let _section = el.href.split('#')[1];
-                    Data.modal.current = _section;
+
+                        let _current = el.href.split('#')[1];
+                        Data.modal.current = _current;
+                        infoSections.forEach( (el) => {
+                            el.style.display = 'none';
+                        })
+                        document.querySelector( `#app > article section#${_current}`).style.display = 'block';
+
                     this.modalWindowShow();
                 });
 
-            })
+            });
+
+        let infoCloser = document.querySelector('#app > article > p a');
+            infoCloser.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.modalWindowHide();
+            });
+            document.querySelector('#app > article').addEventListener('click', () => { this.modalWindowHide() });
+
     },
 
     methods : {
 
         modalWindowShow() {
 
+            document.querySelector('#app > article').classList.add('visible');
             console.log( 'open: ', this.modal.current )
             return true;
         },
 
         modalWindowHide() {
+
+            document.querySelector('#app > article').classList.remove('visible');
+            console.log( 'close: ', this.modal.current )
             return false;
         }
 
