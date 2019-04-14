@@ -1,5 +1,33 @@
 
 const Data = {
+
+    rotate2Dactive : false,
+    rotate2D : 10,
+
+    rotate3Dactive : false,
+	rotateX : 35,
+	rotateY : 35,
+	rotateZ : 0,
+
+    perspectiveActive : false,
+	perspective : 700,
+
+    transformOriginActive : false,
+	transformOriginX : 50,
+	transformOriginY : 50,
+	transformOriginZ : -70,
+
+    scaleActive : false,
+	scale : 1.2,
+
+	translateActive : false,
+	translateX : -10,
+	translateY : -20,
+
+	skewActive : false,
+	skewX : 5,
+	skewY : 5,
+
     modal : {
         visible : false,
         current : null
