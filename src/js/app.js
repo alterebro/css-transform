@@ -2,8 +2,7 @@
 const Data = {
     modal : {
         visible : false,
-        current : null,
-        content : {}
+        current : null
     }
 }
 const App = new Vue({
@@ -13,27 +12,20 @@ const App = new Vue({
 
     mounted() {
 
-        let infoSections = document.querySelectorAll('#app > article section')
-            infoSections = Array.from(infoSections);
+        let infoSections = Array.from( document.querySelectorAll('#app > article section') );
             infoSections.forEach( (el) => {
-
-                Data.modal.content[el.id] = el.innerHTML;
                 el.addEventListener('click', (e) => e.stopPropagation() );
             });
-            Data.modal.current = infoSections[0].id;
 
-        let infoTriggers = document.querySelectorAll('#app > aside dl dt a');
-            infoTriggers = Array.from(infoTriggers);
+        let infoTriggers = Array.from( document.querySelectorAll('#app > aside dl dt a') );
             infoTriggers.forEach( (el) => {
 
                 el.addEventListener('click', (e) => {
                     e.preventDefault();
 
                         let _current = el.href.split('#')[1];
-                        Data.modal.current = _current;
-                        infoSections.forEach( (el) => {
-                            el.style.display = 'none';
-                        })
+                        this.modal.current = _current;
+                        infoSections.forEach( (el) => el.style.display = 'none' );
                         document.querySelector( `#app > article section#${_current}`).style.display = 'block';
 
                     this.modalWindowShow();
@@ -41,13 +33,26 @@ const App = new Vue({
 
             });
 
+        // Modal window close handlers
         let infoCloser = document.querySelector('#app > article > p a');
             infoCloser.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.modalWindowHide();
             });
-            document.querySelector('#app > article').addEventListener('click', () => { this.modalWindowHide() });
+            document.querySelector('#app > article').addEventListener('click', () => this.modalWindowHide() );
 
+        // Accordion
+        let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details') );
+            detailsBlocks.forEach( (el) => {
+
+                el.addEventListener('click', (e) => {
+
+                    e.preventDefault();
+                    let _detailsChildren = Array.from( el.parentNode.querySelectorAll('details') );
+                        _detailsChildren.forEach( (_el) => _el.removeAttribute('open') );
+                    el.setAttribute('open', '');
+                });
+            });
     },
 
     methods : {
@@ -55,18 +60,14 @@ const App = new Vue({
         modalWindowShow() {
 
             document.querySelector('#app > article').classList.add('visible');
-            console.log( 'open: ', this.modal.current )
             return true;
         },
 
         modalWindowHide() {
 
             document.querySelector('#app > article').classList.remove('visible');
-            console.log( 'close: ', this.modal.current )
-            return false;
+            return true;
         }
-
-
     }
 
 });
