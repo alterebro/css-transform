@@ -153,7 +153,7 @@ pre {
 // Input range styling : input[type="range"]
 @range-height : 12px;
 @range-track-bg : @color-bg-light;
-@range-track-active-bg : @color-bg-light;
+@range-track-active-bg : @color-bg;
 @range-handler-bg : @color-alpha;
 @range-handler-active-bg : @color-beta;
 
@@ -177,6 +177,7 @@ pre {
     background: @range-track-bg;
     cursor: pointer;
     .range-input-reset();
+    // transition: background .35s ease-in-out;
 }
 .range-track-active() { background: @range-track-active-bg; }
 .range-handler() {
@@ -185,10 +186,12 @@ pre {
     background: @range-handler-bg;
     cursor: pointer;
     .range-input-reset();
+    // transition: background .35s ease-in-out;
 }
 .range-handler-active() { background: @range-handler-active-bg; }
 
 input[type="range"] {
+
     .range-input-reset();
     height: @range-height;
     background: @range-track-bg;
@@ -256,6 +259,7 @@ button {
         background-color: @color-beta;
         color: fade(@color-fg-light, 99%);
     }
+    &:focus { outline: none; }
 }
 
 
