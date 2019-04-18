@@ -39,7 +39,7 @@
                     <dd>
                         <label for="rotate-2d-range">rotate (2D)</label>
                         <input type="range" id="rotate-2d-range" v-model="rotate2D" min="0" max="360" step="1" />
-                        <code>{{ rotate2D }}deg</code>
+                        <code v-text="rotate2D + 'deg'">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomRotate2D" class="btn-random">Random</button>
@@ -57,17 +57,17 @@
                     <dd>
                         <label for="rotate-3d-range-x">rotate (x)</label>
                         <input type="range" id="rotate-3d-range-x" v-model="rotateX" min="0" max="360" step="1" />
-                        <code>{{ rotateX }}deg</code>
+                        <code v-text="rotateX + 'deg'">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="rotate-3d-range-y">rotate (y)</label>
                         <input type="range" id="rotate-3d-range-y" v-model="rotateY" min="0" max="360" step="1" />
-                        <code>{{ rotateY }}deg</code>
+                        <code v-text="rotateY + 'deg'">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="rotate-3d-range-z">rotate (z)</label>
                         <input type="range" id="rotate-3d-range-z" v-model="rotateZ" min="0" max="360" step="1" />
-                        <code>{{ rotateZ }}deg</code>
+                        <code v-text="rotateZ + 'deg'">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomRotate3D" class="btn-random">Random</button>
@@ -85,7 +85,7 @@
                     <dd>
                         <label for="perspective-range">perspective</label>
                         <input type="range" id="perspective-range" v-model="perspective" min="300" max="2300" step="100" />
-                        <code>{{ perspective }}</code>
+                        <code v-text="perspective">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomPerspective" class="btn-random">Random</button>
@@ -103,17 +103,17 @@
                     <dd>
                         <label for="transform-x-range">transform-origin (x)</label>
                         <input type="range" id="transform-x-range" v-model="transformOriginX" min="0" max="100" step="1" />
-                        <code>{{ transformOriginX }}%</code>
+                        <code v-text="transformOriginX + '%'">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="transform-y-range">transform-origin (y)</label>
                         <input type="range" id="transform-y-range" v-model="transformOriginY" min="0" max="100" step="1" />
-                        <code>{{ transformOriginY }}%</code>
+                        <code v-text="transformOriginY + '%'">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="transform-z-range">transform-origin (z)</label>
                         <input type="range" id="transform-z-range" v-model="transformOriginZ" min="-250" max="250" step="10" />
-                        <code>{{ transformOriginZ }}px</code>
+                        <code v-text="transformOriginZ + 'px'">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomTransformOrigin" class="btn-random">Random</button>
@@ -131,7 +131,7 @@
                     <dd>
                         <label for="scale-range">scale</label>
                         <input type="range" id="scale-range" v-model="scale" min="0.5" max="2" step=".1" />
-                        <code>{{ scale }}</code>
+                        <code v-text="scale">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomScale" class="btn-random">Random</button>
@@ -149,12 +149,12 @@
                     <dd>
                         <label for="translate-x-range">translate-x</label>
                         <input type="range" id="translate-x-range" v-model="translateX" min="-100" max="100" step="10" />
-                        <code>{{ translateX }}</code>
+                        <code v-text="translateX">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="translate-y-range">translate-y</label>
                         <input type="range" id="translate-y-range" v-model="translateY" min="-100" max="100" step="10" />
-                        <code>{{ translateY }}</code>
+                        <code v-text="translateY">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomTranslate" class="btn-random">Random</button>
@@ -172,12 +172,12 @@
                     <dd>
                         <label for="skew-x-range">skew-x</label>
                         <input type="range" id="skew-x-range" v-model="skewX" min="0" max="180" step="1" />
-                        <code>{{ skewX }}</code>
+                        <code v-text="skewX">&mdash;</code>
                     </dd>
                     <dd>
                         <label for="skew-y-range">skew-y</label>
                         <input type="range" id="skew-y-range" v-model="skewY" min="0" max="180" step="1" />
-                        <code>{{ skewY }}</code>
+                        <code v-text="skewY">&mdash;</code>
                     </dd>
                     <dd class="buttons">
                         <button type="button" @click="randomSkew" class="btn-random">Random</button>
@@ -191,10 +191,10 @@
             <fieldset>
                 <legend>All Elements</legend>
                 <p>
-                    <button type="button" class="btn-random">Random</button>
-                    <button type="button" class="btn-reset">Reset</button>
-                    <button type="button" class="btn-on">Activate</button>
-                    <button type="button" class="btn-off">Deactivate</button>
+                    <button type="button" @click="randomAll" class="btn-random">Random</button>
+                    <button type="button" @click="resetAll" class="btn-reset">Reset</button>
+                    <button type="button" @click="activateAll(true)" class="btn-on">Activate</button>
+                    <button type="button" @click="activateAll(false)" class="btn-off">Deactivate</button>
                 </p>
             </fieldset>
         </form>

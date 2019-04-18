@@ -5,11 +5,6 @@ const randomInt = function(min, max) {
 	return Math.floor(Math.random() * ((_max - _min) + 1)) + _min;
 }
 
-let a = randomInt(1, 3);
-let b = randomInt(10, 30);
-let c = randomInt(100, 500);
-console.log(a, b, c);
-
 const Data = {
 
     rotate2Dactive : false,
@@ -153,6 +148,27 @@ const App = new Vue({
 			this.skewY = randomInt(0, 180);
 		},
 		resetSkew() { this.skewX = this.skewY = 0 },
+
+		// -- Multiple Action
+		randomAll : function() {
+			this.randomTransformOrigin();
+			this.randomRotate2D();
+			this.randomRotate3D();
+			this.randomPerspective();
+			this.randomScale();
+			this.randomTranslate();
+			this.randomSkew();
+		},
+		resetAll : function() {
+			this.resetTransformOrigin();
+			this.resetRotate2D();
+			this.resetRotate3D();
+			this.resetPerspective();
+			this.resetScale();
+			this.resetTranslate();
+			this.resetSkew();
+		},
+		activateAll : function(seriously) { this.transformOriginActive = this.rotate2Dactive = this.rotate3Dactive = this.perspectiveActive = this.scaleActive = this.translateActive = this.skewActive = seriously },
 
     }
 
