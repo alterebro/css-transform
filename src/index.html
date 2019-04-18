@@ -42,8 +42,8 @@
                         <code>{{ rotate2D }}deg</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomRotate2D" class="btn-random">Random</button>
+                        <button type="button" @click="resetRotate2D" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Rotate 3D -->
@@ -70,8 +70,8 @@
                         <code>{{ rotateZ }}deg</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomRotate3D" class="btn-random">Random</button>
+                        <button type="button" @click="resetRotate3D" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Perspective -->
@@ -88,8 +88,8 @@
                         <code>{{ perspective }}</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomPerspective" class="btn-random">Random</button>
+                        <button type="button" @click="resetPerspective" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Transform Origin -->
@@ -116,8 +116,8 @@
                         <code>{{ transformOriginZ }}px</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomTransformOrigin" class="btn-random">Random</button>
+                        <button type="button" @click="resetTransformOrigin" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Scale -->
@@ -134,8 +134,8 @@
                         <code>{{ scale }}</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomScale" class="btn-random">Random</button>
+                        <button type="button" @click="resetScale" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Translate -->
@@ -157,8 +157,8 @@
                         <code>{{ translateY }}</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomTranslate" class="btn-random">Random</button>
+                        <button type="button" @click="resetTranslate" class="btn-reset">Reset</button>
                     </dd>
 
                     <!-- Skew -->
@@ -180,8 +180,8 @@
                         <code>{{ skewY }}</code>
                     </dd>
                     <dd class="buttons">
-                        <button type="button" class="btn-random">Random</button>
-                        <button type="button" class="btn-reset">Reset</button>
+                        <button type="button" @click="randomSkew" class="btn-random">Random</button>
+                        <button type="button" @click="resetSkew" class="btn-reset">Reset</button>
                     </dd>
                 </dl>
             </fieldset>
