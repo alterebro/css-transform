@@ -90,6 +90,47 @@ const App = new Vue({
             });
     },
 
+	computed : {
+
+		transform() {
+			let _items = [];
+
+			// Rotate 2D
+			if ( this.rotate2D != 0 && this.rotate2D != 360 && this.rotate2Dactive ) {
+				_items.push( 'rotate('+this.rotate2D + 'deg)' );
+			}
+
+			// Rotate 3D
+			if ( this.rotate3Dactive ) {
+				if ( this.rotateX && this.rotateX != 0 && this.rotateX != 360 ) { _items.push( 'rotateX('+this.rotateX + 'deg)' ) }
+				if ( this.rotateY && this.rotateY != 0 && this.rotateY != 360 ) { _items.push( 'rotateY('+this.rotateY + 'deg)' ) }
+				if ( this.rotateZ && this.rotateZ != 0 && this.rotateZ != 360 ) { _items.push( 'rotateZ('+this.rotateZ + 'deg)' ) }
+
+				// TODO : output this as oneliner rotate3d(x, y, z);
+			}
+
+			// Perspective
+			if ( this.perspectiveActive ) { _items.push( 'perspective('+this.perspective + 'px)' ) }
+
+			// Scale
+			if ( this.scaleActive && this.scale != 1 ) { _items.push('scale('+this.scale+')'); }
+
+			// Translate
+			if ( this.translateActive && (this.translateX !=0 || this.translateY !=0) ) {
+
+				_items.push('translate('+this.translateX+'px,'+this.translateY+'px)');
+			}
+
+			// Skew
+			if ( this.skewActive && (this.skewX !=0 || this.skewY !=0) ) {
+				_items.push('skew('+this.skewX+'deg,'+this.skewY+'deg)');
+			}
+
+			return _items.join(';\n');
+		}
+
+	},
+
     methods : {
 
         modalWindowShow() {
