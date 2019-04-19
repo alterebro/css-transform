@@ -517,6 +517,14 @@ article {
     }
 
     &.visible { display: flex; }
-
 }
-footer { display: none; }
+
+footer {
+    z-index: 3;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+    font-size: .9em;
+}
