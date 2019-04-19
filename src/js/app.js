@@ -93,67 +93,67 @@ const App = new Vue({
 
 	computed : {
 
-		transform() {
-			let _items = [];
-
-			// Rotate 2D
-			if ( this.rotate2D != 0 && this.rotate2D != 360 && this.rotate2Dactive ) {
-				_items.push( 'rotate('+this.rotate2D + 'deg)' );
-			}
-
-			// Rotate 3D
-			if ( this.rotate3Dactive ) {
-				if ( this.rotateX && this.rotateX != 0 ) { _items.push( 'rotateX('+this.rotateX + 'deg)' ) }
-				if ( this.rotateY && this.rotateY != 0 ) { _items.push( 'rotateY('+this.rotateY + 'deg)' ) }
-				if ( this.rotateZ && this.rotateZ != 0 ) { _items.push( 'rotateZ('+this.rotateZ + 'deg)' ) }
-			}
-
-			// TODO : output rotators as oneliner rotate3d(x, y, z, a);
-
-			// Perspective
-			if ( this.perspectiveActive ) { _items.push( 'perspective('+this.perspective + 'px)' ) }
-
-			// Scale
-			if ( this.scaleActive && this.scale != 1 ) { _items.push('scale('+this.scale+')'); }
-
-			// Translate
-			if ( this.translateActive && (this.translateX !=0 || this.translateY !=0) ) {
-
-				_items.push('translate('+this.translateX+'px,'+this.translateY+'px)');
-			}
-
-			// Skew
-			if ( this.skewActive && (this.skewX !=0 || this.skewY !=0) ) {
-				_items.push('skew('+this.skewX+'deg,'+this.skewY+'deg)');
-			}
-
-			if (_items.length > 0) {
-
-				return `transform: ${_items.join('\n\t')};`;
-			}
-		},
-
-		transformOrigin() {
-
-			if ( this.transformOriginActive ) {
-
-				let _x = { 0 : 'left', 50 : 'center', 100 : 'right' };
-				let _y = { 0 : 'top', 50 : 'center', 100 : 'bottom' };
-
-				let origin_x = ( this.transformOriginX == 0 || this.transformOriginX == 50 || this.transformOriginX == 100 )
-					? _x[this.transformOriginX]
-					: this.transformOriginX+'%';
-
-				let origin_y = ( this.transformOriginY == 0 || this.transformOriginY == 50 || this.transformOriginY == 100 )
-					? _y[this.transformOriginY]
-					: this.transformOriginY+'%';
-
-				let output = origin_x + ' ' + origin_y;
-				 	output = ( this.transformOriginZ && this.transformOriginZ != 0 ) ? output + ' ' + this.transformOriginZ + 'px' : output;
-
-				return `transform-origin: ${output};`;
-			}
-		},
+		// transform() {
+		// 	let _items = [];
+		//
+		// 	// Rotate 2D
+		// 	if ( this.rotate2D != 0 && this.rotate2D != 360 && this.rotate2Dactive ) {
+		// 		_items.push( 'rotate('+this.rotate2D + 'deg)' );
+		// 	}
+		//
+		// 	// Rotate 3D
+		// 	if ( this.rotate3Dactive ) {
+		// 		if ( this.rotateX && this.rotateX != 0 ) { _items.push( 'rotateX('+this.rotateX + 'deg)' ) }
+		// 		if ( this.rotateY && this.rotateY != 0 ) { _items.push( 'rotateY('+this.rotateY + 'deg)' ) }
+		// 		if ( this.rotateZ && this.rotateZ != 0 ) { _items.push( 'rotateZ('+this.rotateZ + 'deg)' ) }
+		// 	}
+		//
+		// 	// TODO : output rotators as oneliner rotate3d(x, y, z, a);
+		//
+		// 	// Perspective
+		// 	if ( this.perspectiveActive ) { _items.push( 'perspective('+this.perspective + 'px)' ) }
+		//
+		// 	// Scale
+		// 	if ( this.scaleActive && this.scale != 1 ) { _items.push('scale('+this.scale+')'); }
+		//
+		// 	// Translate
+		// 	if ( this.translateActive && (this.translateX !=0 || this.translateY !=0) ) {
+		//
+		// 		_items.push('translate('+this.translateX+'px,'+this.translateY+'px)');
+		// 	}
+		//
+		// 	// Skew
+		// 	if ( this.skewActive && (this.skewX !=0 || this.skewY !=0) ) {
+		// 		_items.push('skew('+this.skewX+'deg,'+this.skewY+'deg)');
+		// 	}
+		//
+		// 	if (_items.length > 0) {
+		//
+		// 		return `transform: ${_items.join('\n\t')};`;
+		// 	}
+		// },
+		//
+		// transformOrigin() {
+		//
+		// 	if ( this.transformOriginActive ) {
+		//
+		// 		let _x = { 0 : 'left', 50 : 'center', 100 : 'right' };
+		// 		let _y = { 0 : 'top', 50 : 'center', 100 : 'bottom' };
+		//
+		// 		let origin_x = ( this.transformOriginX == 0 || this.transformOriginX == 50 || this.transformOriginX == 100 )
+		// 			? _x[this.transformOriginX]
+		// 			: this.transformOriginX+'%';
+		//
+		// 		let origin_y = ( this.transformOriginY == 0 || this.transformOriginY == 50 || this.transformOriginY == 100 )
+		// 			? _y[this.transformOriginY]
+		// 			: this.transformOriginY+'%';
+		//
+		// 		let output = origin_x + ' ' + origin_y;
+		// 		 	output = ( this.transformOriginZ && this.transformOriginZ != 0 ) ? output + ' ' + this.transformOriginZ + 'px' : output;
+		//
+		// 		return `transform-origin: ${output};`;
+		// 	}
+		// },
 
 
 		styleObject() {
@@ -210,16 +210,19 @@ const App = new Vue({
 			}
 
 			return _styles;
+		},
+
+
+		styleClass() {
+			return {
+				'transform' : this.styleObject.transform.join(' '),
+				'transformOrigin' : (this.styleObject['transform-origin']) ? this.styleObject['transform-origin'] : ''
+			}
 		}
 
 	},
 
 	filters : {
-
-		styleOutput(obj) {
-
-			return obj
-		},
 
 		stringOutput(obj) {
 

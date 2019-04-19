@@ -204,7 +204,11 @@
     <main>
         <div id="box">
 
-            <div id="alpha"></div>
+            <div id="alpha" v-bind:style="{ 'transform' : styleClass.transform, 'transform-origin' : styleClass.transformOrigin }">
+                <!-- ... -->
+            </div>
+
+            {{ styleClass }}
 
             <!-- ... -->
             <!--
