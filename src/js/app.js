@@ -102,12 +102,12 @@ const App = new Vue({
 
 			// Rotate 3D
 			if ( this.rotate3Dactive ) {
-				if ( this.rotateX && this.rotateX != 0 && this.rotateX != 360 ) { _items.push( 'rotateX('+this.rotateX + 'deg)' ) }
-				if ( this.rotateY && this.rotateY != 0 && this.rotateY != 360 ) { _items.push( 'rotateY('+this.rotateY + 'deg)' ) }
-				if ( this.rotateZ && this.rotateZ != 0 && this.rotateZ != 360 ) { _items.push( 'rotateZ('+this.rotateZ + 'deg)' ) }
-
-				// TODO : output this as oneliner rotate3d(x, y, z);
+				if ( this.rotateX && this.rotateX != 0 ) { _items.push( 'rotateX('+this.rotateX + 'deg)' ) }
+				if ( this.rotateY && this.rotateY != 0 ) { _items.push( 'rotateY('+this.rotateY + 'deg)' ) }
+				if ( this.rotateZ && this.rotateZ != 0 ) { _items.push( 'rotateZ('+this.rotateZ + 'deg)' ) }
 			}
+
+			// TODO : output rotators as oneliner rotate3d(x, y, z, a);
 
 			// Perspective
 			if ( this.perspectiveActive ) { _items.push( 'perspective('+this.perspective + 'px)' ) }
@@ -146,14 +146,14 @@ const App = new Vue({
         },
 
 		// Rotate 2D
-		randomRotate2D() { this.rotate2D = randomInt(0, 360) },
+		randomRotate2D() { this.rotate2D = randomInt(0, 359) },
         resetRotate2D() { this.rotate2D = 0 },
 
 		// Rotate 3D
 		randomRotate3D() {
-			this.rotateX = randomInt(0, 360);
-			this.rotateY = randomInt(0, 360);
-			this.rotateZ = randomInt(0, 360);
+			this.rotateX = randomInt(0, 359);
+			this.rotateY = randomInt(0, 359);
+			this.rotateZ = randomInt(0, 359);
 		},
 		resetRotate3D() { this.rotateX = this.rotateY = this.rotateZ = 0; },
 
