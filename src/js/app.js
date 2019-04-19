@@ -77,15 +77,15 @@ const App = new Vue({
             document.querySelector('#app > article').addEventListener('click', () => this.modalWindowHide() );
 
         // Accordion
-        let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details') );
+        let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details summary') );
             detailsBlocks.forEach( (el) => {
 
                 el.addEventListener('click', (e) => {
 
                     e.preventDefault();
-                    let _detailsChildren = Array.from( el.parentNode.querySelectorAll('details') );
+                    let _detailsChildren = Array.from( el.parentNode.parentNode.querySelectorAll('details') );
                         _detailsChildren.forEach( (_el) => _el.removeAttribute('open') );
-                    el.setAttribute('open', '');
+                    el.parentNode.setAttribute('open', '');
                 });
             });
     },
