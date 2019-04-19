@@ -294,6 +294,7 @@ label.checkboxed {
         );
         box-shadow: 0 1px 0 0 rgba(0, 0, 0, 1);
     }
+
 }
 
 @aside-bg : rgba(0, 0, 0, .65);
@@ -438,6 +439,7 @@ main {
         background: fade(@color-bg-dark, 50%);
         box-shadow: inset 0 0 0 1px fade(@color-alpha, 50%);
         padding: 1rem;
+        position: relative;
 
         @media @landscape {
             height: 80vh;
@@ -448,6 +450,14 @@ main {
             width: 80vw;
         }
     }
+
+    #alpha {
+        position: absolute;
+        border: solid white 10px;
+        width: 80%;
+        height: 80%;
+    }
+
 }
 article {
     z-index: 10;

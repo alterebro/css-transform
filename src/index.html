@@ -203,13 +203,17 @@
 
     <main>
         <div id="box">
-            <!-- ... -->
 
+            <div id="alpha"></div>
+
+            <!-- ... -->
+            <!--
                 header  : z-index : 2
             <br>aside   : z-index : 1
-            <br>main    : ---
+            <br>main    : ...
             <br>article : z-index : 10
             <br>footer  : z-index : 3
+            -->
         </div>
         <hr />
     </main>
@@ -411,8 +415,7 @@ skew(ax, ay)
     </article>
 
     <footer>
-        <pre><code>{{ transform }}
-{{ transformOrigin }}</code></pre>
+        <pre><code>{{ styleObject | stringOutput }}</code></pre>
 
         <strong>Code and UI: Jorge Moreno <a href="#">@alterebro</a></strong>.
         <br>Fork the code <a href="#">@github</a>
