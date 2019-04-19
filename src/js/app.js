@@ -224,17 +224,11 @@ const App = new Vue({
 		stringOutput(obj) {
 
 			let _output = [];
-			if ( !!obj['transform'].length ) {
 
-				_output.push( `transform: ${obj['transform'].join('\n\t')};` );
-			}
+				if ( !!obj['transform'].length ) { _output.push( `transform: ${obj['transform'].join('\n\t\t')};` ) }
+				if ( !!obj['transform-origin'] ) { _output.push( `transform-origin: ${obj['transform-origin']};` ) }
 
-			if ( !!obj['transform-origin'] ) {
-
-				_output.push( `transform-origin: ${obj['transform-origin']};` );
-			}
-
-			return _output.join('\n');
+			return (_output.length) ? `element {\n\t${_output.join('\n\t')}\n}` : '';
 		}
 
 	},
