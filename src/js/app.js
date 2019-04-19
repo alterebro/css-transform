@@ -77,6 +77,7 @@ const App = new Vue({
             document.querySelector('#app > article').addEventListener('click', () => this.modalWindowHide() );
 
         // Accordion
+		// TODO : Close when only one is open
         let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details summary') );
             detailsBlocks.forEach( (el) => {
 
@@ -126,8 +127,33 @@ const App = new Vue({
 				_items.push('skew('+this.skewX+'deg,'+this.skewY+'deg)');
 			}
 
-			return _items.join(';\n');
-		}
+			if (_items.length > 0) {
+
+				return `transform: ${_items.join('\n')};`;				
+			}
+		},
+
+		transformOrigin() {
+
+			if ( this.transformOriginActive ) {
+
+				let _x = { 0 : 'left', 50 : 'center', 100 : 'right' };
+				let _y = { 0 : 'top', 50 : 'center', 100 : 'bottom' };
+
+				let origin_x = ( this.transformOriginX == 0 || this.transformOriginX == 50 || this.transformOriginX == 100 )
+					? _x[this.transformOriginX]
+					: this.transformOriginX+'%';
+
+				let origin_y = ( this.transformOriginY == 0 || this.transformOriginY == 50 || this.transformOriginY == 100 )
+					? _y[this.transformOriginY]
+					: this.transformOriginY+'%';
+
+				let output = origin_x + ' ' + origin_y;
+				 	output = ( this.transformOriginZ && this.transformOriginZ != 0 ) ? output + ' ' + this.transformOriginZ + 'px' : output;
+
+				return `transform-origin: ${output};`;
+			}
+		},
 
 	},
 
