@@ -31,38 +31,6 @@
 @color-beta-dark    : darken(spin(@color-beta, -10), 5%);
 
 
-// --------------------------------------------
-// Colour Palette
-[class^="c-"] {
-    display: block;
-    height: 24px;
-    width: 24px;
-    margin: 0px;
-    background: #000;
-    box-shadow:
-        inset 0 0 0 1px #000
-        ,0 0 0 1px rgba(255, 255, 255, .15);
-
-    // display: none;
-}
-.c-a0 { background: @color-alpha-light; }
-.c-a1 { background: @color-alpha; }
-.c-a2 { background: @color-alpha-dark; }
-
-.c-b0 { background: @color-beta-light; }
-.c-b1 { background: @color-beta; }
-.c-b2 { background: @color-beta-dark; }
-
-.c-c0 { background: @color-bg-light; }
-.c-c1 { background: @color-bg; }
-.c-c2 { background: @color-bg-dark; }
-
-.c-d0 { background: @color-fg-light; }
-.c-d1 { background: @color-fg; }
-.c-d2 { background: @color-fg-dark; }
-
-
-
 
 // --------------------------------------------
 // Pseudo-Reset
@@ -153,7 +121,7 @@ pre {
 // Input range styling : input[type="range"]
 @range-height : 12px;
 @range-track-bg : @color-bg-light;
-@range-track-active-bg : @color-bg;
+@range-track-active-bg : @color-bg-light;
 @range-handler-bg : @color-alpha;
 @range-handler-active-bg : @color-beta;
 
@@ -301,22 +269,40 @@ label.checkboxed {
     height: 100%;
     overflow: hidden;
     font-size: 1.3rem;
-    box-shadow: inset 0 4px 0 @color-alpha-light, inset 0 5px 0 #000;
 
     background-image:
         radial-gradient(circle farthest-side, fade(@color-alpha-dark, 50%), transparent),
         radial-gradient(farthest-corner at 10% 90%, fade(@color-alpha-light, 20%), transparent 80%);
-    background-size:
-        90vw 90vw,
-        100% 100%;
-    background-position:
-        center center;
+    background-size: 90vw 90vw, 100% 100%;
+    background-position: center center;
+
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        background-image: linear-gradient( 90deg,
+            @color-alpha-dark,
+            @color-alpha,
+            @color-alpha-light,
+            @color-beta-light,
+            @color-beta,
+            @color-beta-dark
+        );
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 1);
+    }
 }
 
 @aside-bg : rgba(0, 0, 0, .65);
 @aside-width : 42rem;
 
 header {
+
+    // display: none;
+
     z-index: 2;
     position: fixed;
     top: 0;
@@ -452,8 +438,6 @@ main {
         background: fade(@color-bg-dark, 50%);
         box-shadow: inset 0 0 0 1px fade(@color-alpha, 50%);
         padding: 1rem;
-
-        ul li { display: inline-block; }
 
         @media @landscape {
             height: 80vh;
