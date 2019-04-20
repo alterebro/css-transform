@@ -22,7 +22,12 @@
         <hr />
     </header>
 
-    <aside>
+    <section id="do">
+        <a id="open" href="#sidebar">&#x2261;</a>
+        <a id="close" href="#main">&times;</a>
+    </section>
+
+    <aside id="sidebar">
         <form action="/" method="post">
             <fieldset>
                 <legend>Property Settings</legend>
@@ -201,7 +206,7 @@
         <hr />
     </aside>
 
-    <main>
+    <main id="main">
         <div id="box">
 
             <div id="alpha" v-bind:style="{ 'transform' : styleClass.transform, 'transform-origin' : styleClass.transformOrigin }"></div>
@@ -209,11 +214,12 @@
             <!-- {{ styleClass }} -->
             <!-- ... -->
             <!--
-                    header  : z-index : 2
-                <br>aside   : z-index : 1
-                <br>main    : ...
-                <br>article : z-index : 10
-                <br>footer  : z-index : 3
+                section#do      : z-index : 3
+                header          : z-index : 2
+                <br>aside       : z-index : 1
+                <br>main        : ...
+                <br>article     : z-index : 10
+                <br>footer      : z-index : 3
             -->
         </div>
         <hr />
