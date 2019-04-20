@@ -216,7 +216,7 @@
                 <br>aside       : z-index : 1
                 <br>main        : ...
                 <br>article     : z-index : 10
-                <br>footer      : z-index : 3
+                <br>footer      : z-index : 0
             -->
         </div>
         <hr />
@@ -419,9 +419,11 @@ skew(ax, ay)
     </article>
 
     <footer>
-        <pre><code>{{ styleObject | stringOutput }}</code></pre>
-        <strong>Code and UI: Jorge Moreno <a href="https://twitter.com/alterebro">@alterebro</a></strong>.
-        <br>Fork the code <a href="#">@github</a>
+        <pre v-bind:class="{ 'empty' : !hasStyle }"><code>{{ styleObject | stringOutput }}</code></pre>
+        <p>
+            Code and UI by <strong>Jorge Moreno <a href="https://twitter.com/alterebro">@alterebro</a></strong>.
+            <br>Fork the code <a href="#">@github</a>
+        </p>
     </footer>
 </div>
 

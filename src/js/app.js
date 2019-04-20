@@ -39,7 +39,7 @@ const Data = {
         current : null
     },
 
-	sidebar : true
+	sidebar : false
 }
 
 const App = new Vue({
@@ -155,6 +155,10 @@ const App = new Vue({
 				'transform' : this.styleObject.transform.join(' '),
 				'transformOrigin' : (this.styleObject['transform-origin']) ? this.styleObject['transform-origin'] : ''
 			}
+		},
+
+		hasStyle() {
+			return (this.styleObject.transform.length > 0) || (this.styleObject['transform-origin'] != null);
 		}
 
 	},

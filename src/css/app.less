@@ -108,12 +108,11 @@ pre {
 	> code {
 		white-space: pre;
 
-        font-size: .9em;
         display: block;
         padding: 1rem 2rem;
-        color: @color-fg-dark;
 	}
 }
+
 
 
 
@@ -379,7 +378,6 @@ header {
     z-index: 2;
     position: fixed;
     top: 0;
-    // right: 0;
     right: -(@aside-width);
 
     height: 80px;
@@ -554,7 +552,6 @@ main {
         height: 96%;
         margin: 2%;
     }
-
 }
 
 
@@ -570,35 +567,33 @@ main {
     header { right: 0 }
     aside { right: 0 }
     main {
-        // TODO : do this only when there's room for it...
-        @media @desktop {
-            padding: 0 @aside-width 0 0;
-        }
+
+        @media @desktop { padding: 0 @aside-width 0 0 }
     }
 }
 
 
-
-
+// -----------------
+// Info Modal Window
 
 article {
     z-index: 10;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, .75);
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    display: none;
-    > section { display: none; }
+    &.visible { display: flex; }
 
     > section {
         order: 2;
+        display: none;
         width: 90%;
         max-width: 72rem;
         padding: 4rem;
@@ -630,6 +625,11 @@ article {
                 &:focus { outline: none; }
             }
         }
+
+        pre > code {
+            font-size: .9em;
+            color: @color-fg-dark;
+        }
     }
 
     > p {
@@ -648,15 +648,32 @@ article {
         }
     }
 
-    &.visible { display: flex; }
 }
 
 footer {
-    z-index: 3;
-
+    z-index: 0;
     position: fixed;
     bottom: 0;
     left: 0;
     padding: 1rem;
     font-size: .9em;
+    background: @aside-bg;
+    border-top-right-radius: 3px;
+
+    p { line-height: 1.5; }
+
+    pre {
+        margin: 0 0 1rem;
+        transition: all .25s ease-in-out;
+    }
+
+    pre.empty {
+        border: none;
+        height: 0;
+        margin: 0;
+
+        > code {
+            padding: 0;
+        }
+    }
 }
