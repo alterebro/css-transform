@@ -664,23 +664,33 @@ footer {
 
     p { line-height: 1.5; }
 
+
     pre {
-        margin: 0 0 1rem;
+        border: none;
+        height: auto;
+        max-height: 0;
+        margin: 0;
+
         transition: all .25s ease-in-out;
         background: @color-bg-dark;
 
         > code {
+            transition: all .25s ease-in-out;
             color: @color-fg-light;
-        }
-    }
-
-    pre.empty {
-        border: none;
-        height: 0;
-        margin: 0;
-
-        > code {
             padding: 0;
         }
     }
+
+    pre.non-empty {
+        margin: 0 0 1rem;
+        max-height: 100rem;
+        border: dotted @color-fg-dark 1px;
+
+        > code {
+            padding: 1rem 2rem;
+        }
+    }
+
+
+
 }

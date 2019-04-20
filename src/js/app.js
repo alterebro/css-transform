@@ -90,6 +90,7 @@ const App = new Vue({
                     el.parentNode.setAttribute('open', '');
                 });
             });
+
     },
 
 	computed : {

@@ -419,7 +419,7 @@ skew(ax, ay)
     </article>
 
     <footer>
-        <pre v-bind:class="{ 'empty' : !hasStyle }"><code>{{ styleObject | stringOutput }}</code></pre>
+        <pre v-bind:class="{ 'non-empty' : hasStyle }"><code>{{ styleObject | stringOutput }}</code></pre>
         <p>
             Code and UI by <strong>Jorge Moreno <a href="https://twitter.com/alterebro">@alterebro</a></strong>.
             <br>Fork the code <a href="#">@github</a>
