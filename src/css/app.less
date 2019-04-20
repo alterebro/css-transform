@@ -299,13 +299,92 @@ label.checkboxed {
 section#do {
     z-index: 3;
     position: fixed;
-    top: 2rem;
-    right: 2rem;
-    height: 4rem;
-    width: 4rem;
-    border-radius: 3px;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
+    top: 0;
+    right: 0;
 
+    a {
+
+        transition: all .25s ease-in-out;
+
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        height: 4rem;
+        width: 4rem;
+        border-radius: 3px;
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
+
+        em {
+            display: block;
+            text-indent: -1000rem;
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            left: 12px;
+            width: 16px;
+        }
+    }
+
+    a#open { // ≡
+
+        right: 2rem;
+        opacity: 1;
+
+        em {
+
+            border-top: solid #fff 2px;
+            border-bottom: solid #fff 2px;
+            height: 14px; // 16px;
+
+            &:after {
+                content: '';
+                display: block;
+                width: 100%;
+                height: 2px;
+                background: #fff;
+                position: absolute;
+                top: 50%;
+                margin-top: -1px;
+            }
+        }
+    }
+
+    a#close { // ×
+
+        right: -6rem;
+        opacity: 0;
+
+
+        em {
+
+            height: 16px;
+
+            &:before, &:after {
+                content: '';
+                display: block;
+                width: (sqrt(2) * 16px) - 1px;
+                height: 2px;
+                background: #fff;
+                position: absolute;
+            }
+            &:before {
+                top: 0;
+                left: 0;
+                transform: rotate(45deg);
+                transform-origin: 1px 1px;
+            }
+
+            &:after {
+                bottom: 0;
+                left: 0;
+                transform: rotate(-45deg);
+                transform-origin: 1px 1px;
+            }
+        }
+    }
+
+
+/*
     a {
         display: block;
         text-indent: -1000rem;
@@ -317,6 +396,7 @@ section#do {
         width: 16px;
     }
 
+
     // -----------------
     // ≡ Hamburger / Trigram ≡
     a#open {
@@ -324,6 +404,8 @@ section#do {
         border-bottom: solid #fff 2px;
         height: 14px; // 16px;
         display: block;
+
+background: red;
 
         &:after {
             content: '';
@@ -365,6 +447,8 @@ section#do {
             transform-origin: 1px 1px;
         }
     }
+
+    */
 }
 
 
@@ -532,7 +616,7 @@ main {
         height: 80vh;
         width: 80vh;
         background: fade(@color-bg-dark, 50%);
-        box-shadow: inset 0 0 0 1px fade(@color-alpha, 50%);
+        box-shadow: 0 0 0 1px fade(@color-alpha, 50%);
         position: relative;
 
         @media @landscape {
@@ -548,9 +632,9 @@ main {
     #alpha {
         position: absolute;
         border: solid white 10px;
-        width: 96%;
-        height: 96%;
-        margin: 2%;
+        width: ~"calc(100% - 20px)";;
+        height: ~"calc(100% - 20px)";;
+        margin: 10px;
 
         transition: all .35s ease-in-out;
     }
@@ -558,12 +642,19 @@ main {
 
 
 
-
 #app.with-sidebar {
 
     section#do {
-        a#open { display: none }
-        a#close { display: block }
+        a#open { // ≡
+            // display: none
+            right: @aside-width + 2rem;
+            opacity: 0;
+        }
+        a#close { // ×
+            // display: block
+            right: 2rem;
+            opacity: 1;
+        }
     }
 
     header { right: 0 }
