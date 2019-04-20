@@ -551,6 +551,8 @@ main {
         width: 96%;
         height: 96%;
         margin: 2%;
+
+        transition: all .35s ease-in-out;
     }
 }
 
@@ -665,6 +667,11 @@ footer {
     pre {
         margin: 0 0 1rem;
         transition: all .25s ease-in-out;
+        background: @color-bg-dark;
+
+        > code {
+            color: @color-fg-light;
+        }
     }
 
     pre.empty {
