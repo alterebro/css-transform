@@ -37,7 +37,9 @@ const Data = {
     modal : {
         visible : false,
         current : null
-    }
+    },
+
+	sidebar : true
 }
 
 const App = new Vue({
@@ -173,9 +175,18 @@ const App = new Vue({
 
     methods : {
 
-		// Modal Info Window
+		// ------------------
+		// - Modal Info Window
         modalWindowShow() { document.querySelector('#app > article').classList.add('visible') },
         modalWindowHide() { document.querySelector('#app > article').classList.remove('visible') },
+
+		// ------------------
+		// - Sidebar
+		openSidebar() { this.sidebar = true },
+		closeSidebar() { this.sidebar = false },
+
+		// ------------------
+		// - Transform Functions
 
 		// Rotate 2D
 		randomRotate2D() { this.rotate2D = randomInt(0, 359) },
@@ -222,7 +233,8 @@ const App = new Vue({
 		},
 		resetSkew() { this.skewX = this.skewY = 0 },
 
-		// -- Multiple Action
+		// ------------------
+		// - Multiple Transform Action
 		randomAll : function() {
 			this.randomTransformOrigin();
 			this.randomRotate2D();

@@ -304,24 +304,27 @@ section#do {
     right: 2rem;
     height: 4rem;
     width: 4rem;
-    background: rgba(255, 255, 255, .15);
     border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .25);
 
     a {
         display: block;
         text-indent: -1000rem;
+
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 12px;
+        width: 16px;
     }
 
+    // -----------------
+    // ≡ Hamburger / Trigram ≡
     a#open {
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 18px;
-        background: rgba(255, 255, 255, .0);
         border-top: solid #fff 2px;
         border-bottom: solid #fff 2px;
+        height: 14px; // 16px;
+        display: block;
 
         &:after {
             content: '';
@@ -333,29 +336,22 @@ section#do {
             top: 50%;
             margin-top: -1px;
         }
-
-        opacity: 0;
     }
 
+    // -----------------
+    // × Cross / Times ×
     a#close {
-
-        position: absolute;
-        top: 50%;
-        left: 10px;
-        transform: translateY(-50%);
-        width: 20px;
-        height: 20px;
-        background: rgba(255, 255, 255, .0);
+        height: 16px;
+        display: none;
 
         &:before, &:after {
             content: '';
             display: block;
-            width: (sqrt(2) * 20px) - 1px;
+            width: (sqrt(2) * 16px) - 1px;
             height: 2px;
             background: #fff;
             position: absolute;
         }
-
         &:before {
             top: 0;
             left: 0;
@@ -373,18 +369,20 @@ section#do {
 }
 
 
+
+
 @aside-bg : rgba(0, 0, 0, .65);
 @aside-width : 42rem;
 
 header {
 
-    // display: none;
-
     z-index: 2;
     position: fixed;
     top: 0;
-    right: 0;
-    height: 100px;
+    // right: 0;
+    right: -(@aside-width);
+
+    height: 80px;
     width: 100%;
     max-width: @aside-width;
     background: @aside-bg;
@@ -395,32 +393,47 @@ header {
         0 2px 0 0 rgba(0, 0, 0, .5);
 
     border-bottom: solid fade(@color-alpha, 50%) 1px;
+    overflow: hidden;
+
+    transition: right .25s ease-in-out;
+
+    h1, p {
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        padding: 0 50px 0 0;
+    }
 
     h1 {
         font-size: 2.2rem;
         font-weight: 700;
         letter-spacing: .1rem;
-        line-height: 1;
         color: @color-fg-light;
         margin: 0 0 2px;
+        line-height: 1;
+        height: 22px;
     }
-    p { line-height: 1.4; }
-
-    > div {
-
+    p {
+        line-height: 1.4;
+        height: 18px;
     }
 }
 
 aside {
     z-index: 1;
     position: fixed;
-    top: 100px;
-    right: 0;
-    height: ~"calc(100% - 100px)";
+    top: 80px;
+    // right: 0;
+    right: -(@aside-width);
+
+    height: ~"calc(100% - 80px)";
     width: 100%;
     max-width: @aside-width;
     background: @aside-bg;
     overflow: auto;
+
+    transition: right .25s ease-in-out;
 
     form {
         padding: 2rem;
@@ -505,12 +518,16 @@ aside {
         }
     }
 }
+
 main {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
+
+    transition: padding .25s ease-in-out;
 
     #box {
         display: inline-block;
@@ -533,11 +550,37 @@ main {
     #alpha {
         position: absolute;
         border: solid white 10px;
-        width: 100%;
-        height: 100%;
+        width: 96%;
+        height: 96%;
+        margin: 2%;
     }
 
 }
+
+
+
+
+#app.with-sidebar {
+
+    section#do {
+        a#open { display: none }
+        a#close { display: block }
+    }
+
+    header { right: 0 }
+    aside { right: 0 }
+    main {
+        // TODO : do this only when there's room for it...
+        @media @desktop {
+            padding: 0 @aside-width 0 0;
+        }
+    }
+}
+
+
+
+
+
 article {
     z-index: 10;
     position: fixed;

@@ -11,20 +11,17 @@
 </head>
 <body>
 
-<div id="app">
+<div id="app" v-bind:class="{ 'with-sidebar' : sidebar }">
 
     <header>
         <h1><a href="https://css-transform.moro.es">CSS3 Transform</a></h1>
-        <p>
-            2D / 3D CSS Transform functions visualizer
-            <br>by Jorge Moreno &mdash; <a href="https://twitter.com/alterebro">@alterebro</a>
-        </p>
+        <p>2D / 3D CSS Transform functions visualizer</p>
         <hr />
     </header>
 
     <section id="do">
-        <a id="open" href="#sidebar">&#x2261;</a>
-        <a id="close" href="#main">&times;</a>
+        <a id="open" @click.prevent="openSidebar" href="#sidebar">&#x2261;</a>
+        <a id="close" @click.prevent="closeSidebar" href="#main">&times;</a>
     </section>
 
     <aside id="sidebar">
@@ -423,8 +420,7 @@ skew(ax, ay)
 
     <footer>
         <pre><code>{{ styleObject | stringOutput }}</code></pre>
-
-        <strong>Code and UI: Jorge Moreno <a href="#">@alterebro</a></strong>.
+        <strong>Code and UI: Jorge Moreno <a href="https://twitter.com/alterebro">@alterebro</a></strong>.
         <br>Fork the code <a href="#">@github</a>
     </footer>
 </div>
