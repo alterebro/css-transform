@@ -40,7 +40,7 @@ const Data = {
     },
 
 	sidebar : false,
-	cssOutput : true
+	cssOutput : false
 }
 
 const App = new Vue({

@@ -420,10 +420,12 @@ skew(ax, ay)
 
     <footer>
         <dl>
-            <dt @click="toggleCSSOutput"><strong>CSS Output</strong></dt>
+            <dt v-bind:class="{ 'hidden' : !cssOutput }" @click="toggleCSSOutput"><strong>CSS Output</strong></dt>
             <dd v-bind:class="{ 'hidden' : !cssOutput }">
                 <pre v-if="hasStyle"><code>{{ styleObject | stringOutput }}</code></pre>
-                <pre v-else><code>element { /* No styling applied yet */ }</code></pre>
+                <pre v-else><code>element {
+    /* No styling applied yet */
+}</code></pre>
             </dd>
         </dl>
         <p>

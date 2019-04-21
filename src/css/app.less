@@ -703,8 +703,34 @@ footer {
 
         dt {
             margin: 0;
-            padding: 0 0 .5rem;
+            padding: 0 0 .5rem 16px;
             cursor: pointer;
+            position: relative;
+
+            strong { color: @color-alpha; }
+            strong:hover { color: @color-fg-light; }
+
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 6px;
+                left: 4px;
+                width: 6px;
+                height: 6px;
+
+                border-top: solid 6px @color-fg;
+                border-left: solid 3px transparent;
+                border-right: solid 3px transparent;
+                border-bottom: none;
+
+                transition: transform .35s ease-in-out;
+                transform-origin: center center;
+            }
+
+            &.hidden:before {
+                transform: rotate(-90deg);
+            }
         }
         dd {
             max-height: 320px;
@@ -719,6 +745,7 @@ footer {
                 > code {
                     margin: 0;
                     padding: 1rem;
+                    color: @color-fg-light;
                 }
 
             }
