@@ -633,7 +633,19 @@ article {
             color: @color-fg-dark;
             margin: 0 0 1rem;
         }
+
         p { margin: 0 0 1rem; }
+
+        ul {
+            margin: 0 0 1rem 2rem;
+
+            li {
+                list-style: square;
+                margin: 0 0 .5rem;
+                &:last-child { margin: 0 }
+            }
+        }
+
 
         details {
             padding: 1rem 0 0;

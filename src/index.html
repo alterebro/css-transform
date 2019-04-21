@@ -283,8 +283,15 @@
         <section id="info-transform-origin">
             <h2>Transform Origin</h2>
 
-            <h3><code>transform-origin()</code> <small>Lorem ipsum dolor ...</small></h3>
-            <p>The transform origin...</p>
+            <h3><code>transform-origin()</code> <small>Sets the origin for an element's transformations.</small></h3>
+            <p>The transformation origin is the point around which a transformation is applied. For example, the transformation origin of the <code>rotate()</code> function is the center of rotation.</p>
+            <p>The <code>transform-origin</code> property may be specified using one, two, or three values, where each value represents an offset. Offsets that are not explicitly defined are reset to their corresponding initial values.</p>
+            <p>If two or more values are defined and either no value is a keyword, or the only used keyword is <code>center</code>, then the first value represents the horizontal offset and the second represents the vertical offset.</p>
+            <ul>
+                <li><strong>One-value syntax:</strong> The value must be a <em>length</em>, a <em>percentage</em>, or one of the keywords <code>left</code>, <code>center</code>, <code>right</code>, <code>top</code>, and <code>bottom</code>.</li>
+                <li><strong>Two-value syntax:</strong> One value must be a <em>length</em>, a <em>percentage</em>, or one of the keywords <code>left</code>, <code>center</code>, and <code>right</code>. The other value must be a <em>length</em>, a <em>percentage</em>, or one of the keywords <code>top</code>, <code>center</code>, and <code>bottom</code>.</li>
+                <li><strong>Three-value syntax:</strong> The first two values are the same as for the two-value syntax. The third value must be a <em>length</em>. It always represents the <code>Z offset</code>.</li>
+            </ul>
             <p> &mdash; <em>More Info : <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin" target="_blank">https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin</a></em></p>
 
             <hr />
