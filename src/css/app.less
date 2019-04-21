@@ -31,7 +31,6 @@
 @color-beta-dark    : darken(spin(@color-beta, -10), 5%);
 
 
-
 // --------------------------------------------
 // Pseudo-Reset
 html, body, h1, h2, h3, h4, p, ul, ol, li, dl, dd, dt, form, fieldset, hr , pre {
@@ -49,8 +48,6 @@ button, input, optgroup, select, textarea {
     padding: 0;
     text-transform: none;
 }
-
-
 
 // -----------------------
 
@@ -91,11 +88,7 @@ a {
 a:hover { color: @color-beta; }
 a:active, a:hover { outline: 0; }
 
-pre, code, kbd, samp {
-	font-family: @font-mono;
-	// font-size: .9em;
-}
-
+pre, code, kbd, samp { font-family: @font-mono; }
 pre {
 	white-space: pre;
 	white-space: pre-wrap;
@@ -107,9 +100,6 @@ pre {
         display: block;
 	}
 }
-
-
-
 
 // -----------------------------------------
 // Input range styling : input[type="range"]
@@ -148,7 +138,7 @@ pre {
     background: @range-handler-bg;
     cursor: pointer;
     .range-input-reset();
-    // transition: background .35s ease-in-out;
+    transition: background .35s ease-in-out;
 }
 .range-handler-active() { background: @range-handler-active-bg; }
 
@@ -224,7 +214,6 @@ button {
     &:focus { outline: none; }
 }
 
-
 // -----------------------------------------
 // Input Checkbox : input[type="checkbox"] / (Within label with <strong> sibling)
 label.checkboxed {
@@ -288,7 +277,6 @@ label.checkboxed {
         );
         box-shadow: 0 1px 0 0 rgba(0, 0, 0, 1);
     }
-
 }
 
 section#do {
@@ -298,7 +286,6 @@ section#do {
     right: 0;
 
     a {
-
         transition: all .25s ease-in-out;
 
         position: absolute;
@@ -349,7 +336,6 @@ section#do {
         right: -6rem;
         opacity: 0;
 
-
         em {
 
             height: 16px;
@@ -377,11 +363,9 @@ section#do {
             }
         }
     }
-
 }
 
-
-
+// -----------------------
 
 @aside-bg : rgba(0, 0, 0, .65);
 @aside-width : 42rem;
@@ -435,7 +419,6 @@ aside {
     z-index: 1;
     position: fixed;
     top: 80px;
-    // right: 0;
     right: -(@aside-width);
 
     height: ~"calc(100% - 80px)";
@@ -452,11 +435,7 @@ aside {
         fieldset {
             border: none;
 
-            > legend {
-                // color: @color-fg-light;
-                font-weight: 700;
-            }
-
+            > legend { font-weight: 700 }
             > dl {
                 dt:first-child { margin-top: 1rem; }
                 dt {
@@ -571,8 +550,7 @@ main {
             content: '';
             display: block;
             position: absolute;
-            // background: rgba(255, 255, 255, 1);
-            background: fade(#fff, 100%);
+            background: @color-fg-light;
         }
         &:before {
             top: 50%;
@@ -594,13 +572,13 @@ main {
 #app.with-sidebar {
 
     section#do {
-        a#open { // ≡
 
+        a#open { // ≡
             right: @aside-width + 2rem;
             opacity: 0;
         }
-        a#close { // ×
 
+        a#close { // ×
             right: 2rem;
             opacity: 1;
         }
@@ -608,10 +586,7 @@ main {
 
     header { right: 0 }
     aside { right: 0 }
-    main {
-
-        @media @desktop { padding: 0 @aside-width 0 0 }
-    }
+    main { @media @desktop { padding: 0 @aside-width 0 0 } }
 }
 
 
@@ -665,7 +640,6 @@ article {
                 &:last-child { margin: 0 }
             }
         }
-
 
         details {
             padding: 1rem 0 0;
@@ -722,11 +696,7 @@ footer {
     background: @aside-bg;
     border-top-right-radius: 3px;
 
-    p {
-        line-height: 1.5;
-    }
-
-
+    p { line-height: 1.5 }
 
     dl {
         border-bottom: solid fade(@color-alpha, 50%) 1px;
@@ -760,9 +730,7 @@ footer {
                 transform-origin: center center;
             }
 
-            &.hidden:before {
-                transform: rotate(-90deg);
-            }
+            &.hidden:before { transform: rotate(-90deg); }
         }
         dd {
             max-height: 320px;
@@ -779,42 +747,8 @@ footer {
                     padding: 1rem;
                     color: @color-fg-light;
                 }
-
             }
-            &.hidden {
-                max-height: 0;
-            }
+            &.hidden { max-height: 0; }
         }
     }
-
-
-
-    // pre {
-    //     border: none;
-    //     height: auto;
-    //     max-height: 0;
-    //     margin: 0;
-    //
-    //     transition: all .25s ease-in-out;
-    //     background: @color-bg-dark;
-    //
-    //     > code {
-    //         transition: all .25s ease-in-out;
-    //         color: @color-fg-light;
-    //         padding: 0 1rem;
-    //     }
-    // }
-    //
-    // pre.non-empty {
-    //
-    //     margin: 0 0 1rem;
-    //     max-height: 100rem;
-    //     border: dotted @color-fg-dark 1px;
-    //
-    //     > code {
-    //         padding: 1rem;
-    //     }
-    // }
-
-
 }
