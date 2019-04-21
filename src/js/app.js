@@ -39,7 +39,8 @@ const Data = {
         current : null
     },
 
-	sidebar : false
+	sidebar : false,
+	cssOutput : true
 }
 
 const App = new Vue({
@@ -189,6 +190,10 @@ const App = new Vue({
 		// - Sidebar
 		openSidebar() { this.sidebar = true },
 		closeSidebar() { this.sidebar = false },
+
+		// ------------------
+		// - CSS Output
+		toggleCSSOutput() { this.cssOutput = !this.cssOutput },
 
 		// ------------------
 		// - Transform Functions

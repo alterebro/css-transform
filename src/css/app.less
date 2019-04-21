@@ -34,7 +34,7 @@
 
 // --------------------------------------------
 // Pseudo-Reset
-html, body, h1, h2, h3, h4, p, ul, ol, li, dl, dd, dt, form, fieldset, hr {
+html, body, h1, h2, h3, h4, p, ul, ol, li, dl, dd, dt, form, fieldset, hr , pre {
     margin: 0;
     padding: 0;
 }
@@ -102,14 +102,9 @@ pre {
 	word-wrap: break-word;
 	overflow: auto;
 
-    border: dotted @color-fg-dark 1px;
-    border-radius: 3px;
-
 	> code {
 		white-space: pre;
-
         display: block;
-        padding: 1rem 2rem;
 	}
 }
 
@@ -653,9 +648,16 @@ article {
             }
         }
 
-        pre > code {
-            font-size: .9em;
-            color: @color-fg-dark;
+        pre {
+            border: dotted @color-fg-dark 1px;
+            border-radius: 3px;
+            margin: 1rem 0 2rem;
+
+            > code {
+                font-size: .9em;
+                color: @color-fg-dark;
+                padding: 1rem 2rem;
+            }
         }
     }
 
@@ -678,6 +680,7 @@ article {
 }
 
 footer {
+
     z-index: 0;
     position: fixed;
     bottom: 0;
@@ -687,36 +690,72 @@ footer {
     background: @aside-bg;
     border-top-right-radius: 3px;
 
-    p { line-height: 1.5; }
+    p {
+        line-height: 1.5;
+    }
 
 
-    pre {
-        border: none;
-        height: auto;
-        max-height: 0;
-        margin: 0;
 
-        transition: all .25s ease-in-out;
-        background: @color-bg-dark;
+    dl {
+        border-bottom: solid fade(@color-alpha, 50%) 1px;
+        margin: 0 0 .5rem;
+        padding: 0;
 
-        > code {
-            transition: all .25s ease-in-out;
-            color: @color-fg-light;
-            padding: 0 1rem;
+        dt {
+            margin: 0;
+            padding: 0 0 .5rem;
+            cursor: pointer;
+        }
+        dd {
+            max-height: 320px;
+            overflow: hidden;
+            transition: max-height .35s ease-in-out;
+
+            pre {
+                border: dotted @color-fg-dark 1px;
+                margin: 0 0 1rem;
+                padding: 0;
+
+                > code {
+                    margin: 0;
+                    padding: 1rem;
+                }
+
+            }
+            &.hidden {
+                max-height: 0;
+            }
         }
     }
 
-    pre.non-empty {
 
-        margin: 0 0 1rem;
-        max-height: 100rem;
-        border: dotted @color-fg-dark 1px;
 
-        > code {
-            padding: 1rem;
-        }
-    }
-
+    // pre {
+    //     border: none;
+    //     height: auto;
+    //     max-height: 0;
+    //     margin: 0;
+    //
+    //     transition: all .25s ease-in-out;
+    //     background: @color-bg-dark;
+    //
+    //     > code {
+    //         transition: all .25s ease-in-out;
+    //         color: @color-fg-light;
+    //         padding: 0 1rem;
+    //     }
+    // }
+    //
+    // pre.non-empty {
+    //
+    //     margin: 0 0 1rem;
+    //     max-height: 100rem;
+    //     border: dotted @color-fg-dark 1px;
+    //
+    //     > code {
+    //         padding: 1rem;
+    //     }
+    // }
 
 
 }
