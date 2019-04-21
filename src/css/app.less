@@ -566,6 +566,26 @@ main {
         margin: 10px;
 
         transition: all .35s ease-in-out;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            // background: rgba(255, 255, 255, 1);
+            background: fade(#fff, 100%);
+        }
+        &:before {
+            top: 50%;
+            left: -10%;
+            height: 1px;
+            width: 120%;
+        }
+        &:after {
+            top: -10%;
+            left: 50%;
+            height: 120%;
+            width: 1px;
+        }
     }
 }
 
