@@ -1,3 +1,81 @@
+
+const chainTimeout = function(fn, t) {
+
+	// SetTimeout Replacement using requestAnimationFrame
+	function requestTimeout(func, delay) {
+
+		let start = new Date().getTime();
+		let handle = null;
+		let loop = () => { ( (new Date().getTime() - start) >= delay ) ? func.call() : handle = requestAnimationFrame(loop) };
+		    handle = requestAnimationFrame(loop);
+		return handle;
+	}
+
+	// ---
+
+	let queue = []
+	let self = null;
+	let timer = null;
+
+    function schedule(fn, t) {
+
+		timer = requestTimeout( function() {
+
+			timer = null;
+			fn.call();
+		    if (queue.length) {
+                let item = queue.shift();
+                schedule(item.fn, item.t);
+            }
+
+		}, t);
+    }
+
+    self = {
+
+        chainTimeout: function(fn, t) {
+			(queue.length || timer) ? queue.push({fn: fn, t: t}) : schedule(fn, t);
+            return self;
+        },
+        clear: function() {
+			cancelAnimationFrame(timer);
+            queue = [];
+            return self;
+        }
+    };
+
+    return self.chainTimeout(fn, t);
+}
+
+
+// Sampling ...
+let a = 0;
+let z = chainTimeout( function() {
+		a = new Date().getTime()
+		console.log(0, a)
+	}, 0 )
+	.chainTimeout( function() { console.log('a', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() { console.log('b', new Date().getTime() - a ) }, 500)
+	.chainTimeout( function() { console.log('c', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() { console.log('d', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() {
+		b = new Date().getTime()
+		console.log( b - a );
+		z.clear();
+		console.log(z);
+		console.log('cancel?')
+	}, 500)
+	.chainTimeout( function() { console.log('a', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() { console.log('b', new Date().getTime() - a ) }, 500)
+	.chainTimeout( function() { console.log('c', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() { console.log('d', new Date().getTime() - a ) }, 500)
+    .chainTimeout( function() {
+		b = new Date().getTime()
+		console.log( b - a )
+	}, 500);
+
+
+
 const randomInt = function(min, max) {
 	// Returns a random integer between @min and @max (inclusive)
 	let _max = parseInt(max);
