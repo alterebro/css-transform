@@ -1,4 +1,3 @@
-
 const chainTimeout = function(fn, t) {
 
 	// SetTimeout Replacement using requestAnimationFrame
@@ -46,34 +45,6 @@ const chainTimeout = function(fn, t) {
 
     return self.chainTimeout(fn, t);
 }
-
-
-// Sampling ...
-let a = 0;
-let z = chainTimeout( function() {
-		a = new Date().getTime()
-		console.log(0, a)
-	}, 0 )
-	.chainTimeout( function() { console.log('a', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() { console.log('b', new Date().getTime() - a ) }, 500)
-	.chainTimeout( function() { console.log('c', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() { console.log('d', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() {
-		b = new Date().getTime()
-		console.log( b - a );
-		z.clear();
-		console.log(z);
-		console.log('cancel?')
-	}, 500)
-	.chainTimeout( function() { console.log('a', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() { console.log('b', new Date().getTime() - a ) }, 500)
-	.chainTimeout( function() { console.log('c', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() { console.log('d', new Date().getTime() - a ) }, 500)
-    .chainTimeout( function() {
-		b = new Date().getTime()
-		console.log( b - a )
-	}, 500);
-
 
 
 const randomInt = function(min, max) {
