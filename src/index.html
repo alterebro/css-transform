@@ -205,7 +205,10 @@
 
     <main id="main">
         <div id="box">
-            <div id="alpha" v-bind:style="{ 'transform' : styleClass.transform, 'transform-origin' : styleClass.transformOrigin }"><!-- ... --></div>
+            <div id="alpha" v-bind:style="{ 'transform' : styleClass.transform, 'transform-origin' : styleClass.transformOrigin }">
+                <div class="alpha-panel" id="alpha-front"><strong>Front</strong></div>
+                <div class="alpha-panel" id="alpha-back"><strong>Back</strong></div>
+            </div>
         </div>
         <hr />
     </main>
