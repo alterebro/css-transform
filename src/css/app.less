@@ -84,8 +84,10 @@ a {
     color: @color-alpha;
     text-decoration: none;
     background-color: transparent;
+
+    transition: color .25s ease-in-out;
 }
-a:hover { color: @color-beta; }
+a:hover { color: @color-beta-light; }
 a:active, a:hover { outline: 0; }
 
 pre, code, kbd, samp { font-family: @font-mono; }
@@ -107,7 +109,7 @@ pre {
 @range-track-bg : @color-bg-light;
 @range-track-active-bg : @color-bg-light;
 @range-handler-bg : @color-alpha;
-@range-handler-active-bg : @color-beta;
+@range-handler-active-bg : @color-beta-light;
 
 .appears-like(@value) {
     -webkit-appearance: @value;
@@ -188,14 +190,19 @@ button {
     background-color: @color-alpha;
     border: none;
     border-radius: 2px;
-    color: fade(@color-fg-light, 80%);
+    color: fade(@color-fg-light, 75%);
     cursor: pointer;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, .1);
 
     &[class^="btn-"] {
         background-repeat: no-repeat;
         background-size: 10px 10px;
         background-position: right 10px center;
         padding: 0 26px 0 10px;
+
+        transition:
+            background .25s ease-in-out,
+            color .25s ease-in-out;
     }
     &.btn-random { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M505 359c9 9 9 25 0 34l-80 80c-15 15-41 4-41-17v-40h-59a12 12 0 0 1-9-4l-70-75 53-58 53 57h32v-40c0-21 26-32 41-17l80 80zM12 176h84l53 57 53-58-70-75a12 12 0 0 0-9-4H12c-7 0-12 5-12 12v56c0 7 5 12 12 12zm372 0v40c0 21 26 32 41 17l80-80c9-9 9-25 0-34l-80-80c-15-15-41-4-41 17v40h-59a12 12 0 0 0-9 4L96 336H12c-7 0-12 5-12 12v56c0 7 5 12 12 12h111c3 0 6-1 9-4l220-236h32z'/%3E%3C/svg%3E"); }
     &.btn-reset { background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23fff' d='M400 54a248 248 0 1 1-288 0c11-8 28-5 35 8l16 28c5 11 3 24-7 31a168 168 0 1 0 200 0c-10-7-13-21-7-31l16-28c7-13 23-16 35-8zM296 264V24c0-13-11-24-24-24h-32c-13 0-24 11-24 24v240c0 13 11 24 24 24h32c13 0 24-11 24-24z'/%3E%3C/svg%3E"); }
@@ -234,12 +241,13 @@ label.checkboxed {
         top: 50%;
         margin-top: -6px;
         border-radius: 2px;
+
+        transition: background .25s ease-in-out, box-shadow .25s ease-in-out;
     }
     input[type="checkbox"]:checked + strong:before {
-        background: @color-alpha;
+        background: @color-alpha-light;
         box-shadow: inset 0 0 0 2px #000;
     }
-    &:hover input[type="checkbox"]:checked + strong:before { background: @color-alpha-light; }
 }
 
 // -----------------------
@@ -295,6 +303,8 @@ section#do {
         width: 4rem;
         border-radius: 3px;
         box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2);
+
+        &:hover { box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .4) }
 
         em {
             display: block;
@@ -403,7 +413,6 @@ header {
     h1 {
         font-size: 2.2rem;
         font-weight: 700;
-        letter-spacing: .1rem;
         color: @color-fg-light;
         margin: 0 0 2px;
         line-height: 1;
@@ -543,26 +552,26 @@ main {
         width: ~"calc(100% - 20px)";;
         height: ~"calc(100% - 20px)";;
         margin: 10px;
-
-        transition: all .35s ease-in-out;
+        transition: all .5s ease-in-out;
 
         &:before, &:after {
             content: '';
             display: block;
             position: absolute;
-            background: @color-fg-light;
         }
         &:before {
             top: 50%;
             left: -10%;
-            height: 1px;
+            height: 0;
             width: 120%;
+            border-top: dotted @color-fg-light 1px;
         }
         &:after {
             top: -10%;
             left: 50%;
             height: 120%;
-            width: 1px;
+            width: 0;
+            border-left: dotted @color-fg-light 1px;
         }
     }
 }
@@ -708,9 +717,11 @@ footer {
             padding: 0 0 .5rem 16px;
             cursor: pointer;
             position: relative;
+            font-weight: bold;
+            color: @color-alpha;
+            &:hover { color: @color-beta-light; }
 
-            strong { color: @color-alpha; }
-            strong:hover { color: @color-fg-light; }
+            transition: color .25s ease-in-out;
 
             &:before {
                 content: '';
@@ -728,12 +739,13 @@ footer {
 
                 transition: transform .35s ease-in-out;
                 transform-origin: center center;
+                transform: rotate(-90deg);
             }
 
-            &.hidden:before { transform: rotate(-90deg); }
+            &.visible:before { transform: rotate(0deg); }
         }
         dd {
-            max-height: 320px;
+            max-height: 0;
             overflow: hidden;
             transition: max-height .35s ease-in-out;
 
@@ -748,7 +760,7 @@ footer {
                     color: @color-fg-light;
                 }
             }
-            &.hidden { max-height: 0; }
+            &.visible { max-height: 320px; }
         }
     }
 }
