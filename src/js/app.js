@@ -88,6 +88,11 @@ const App = new Vue({
 			if ( e.keyCode === 27 ) { this.modalWindowHide() } 		// 'Esc' to close modal
 			if ( e.keyCode === 9 ) { this.sidebar = !this.sidebar } // 'Tab' to toggle Sidebar
 			if ( e.keyCode === 32 ) { this.toggleCSSOutput() } 		// 'Space' to toggle CSS Output
+
+			if ( e.keyCode === 49 ) { this.randomAll() } 			// Num key 1
+			if ( e.keyCode === 50 ) { this.resetAll() }				// Num key 2
+			if ( e.keyCode === 51 ) { this.activateAll(true) }		// Num key 3
+			if ( e.keyCode === 52 ) { this.activateAll(false) }		// Num key 4
 		})
 
         // Accordion
