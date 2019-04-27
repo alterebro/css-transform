@@ -37,7 +37,9 @@ function scripts() {
     .pipe(dest('dist/js'));
 }
 function copy_files() {
-    return src(['src/_redirects', 'src/favicon.ico'])
+    return src([
+        'src/_redirects',
+    ])
     .pipe(dest('dist/'));
 }
 function modules() {
