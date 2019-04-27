@@ -12,8 +12,8 @@ const Data = {
     rotate2D : 10,
 
     rotate3Dactive : false,
-	rotateX : 35,
-	rotateY : 35,
+	rotateX : 10,
+	rotateY : 10,
 	rotateZ : 0,
 
     perspectiveActive : false,
@@ -25,15 +25,15 @@ const Data = {
 	transformOriginZ : -70,
 
     scaleActive : false,
-	scale : 1.2,
+	scale : 1,
 
 	translateActive : false,
 	translateX : -10,
 	translateY : -20,
 
 	skewActive : false,
-	skewX : 5,
-	skewY : 5,
+	skewX : 10,
+	skewY : 10,
 
     modal : {
         visible : false,
@@ -92,6 +92,45 @@ const App = new Vue({
                     el.parentNode.setAttribute('open', '');
                 });
             });
+
+		// Chain of Actions
+		let actionsChain =
+			chainTimeout( () => this.cssOutput = true, 250 )
+			.chainTimeout( () => {
+				this.transformOriginActive = true;
+				this.rotate2Dactive = true;
+			}, 250 )
+			.chainTimeout( () => this.rotate3Dactive = true, 500 )
+			.chainTimeout( () => this.rotateZ = 10, 500 )
+			.chainTimeout( () => this.perspectiveActive = true, 500 )
+			.chainTimeout( () => {
+				this.perspective = 1500;
+				this.rotateZ = -45;
+			}, 500 )
+			.chainTimeout( () => {
+				this.scaleActive = true;
+				this.scale = 0.8;
+			}, 500 )
+			.chainTimeout( () => this.translateActive = true, 500 )
+			.chainTimeout( () => this.skewActive = true, 500 )
+			.chainTimeout( () => {
+				this.rotateY = 40;
+				this.rotateZ = 0;
+				this.perspective = 800;
+				this.scale = 0.9;
+				this.translateX = -50;
+				this.translateY = 0;
+				this.skewX = 0;
+				this.skewY = 0;
+			}, 1000 )
+			.chainTimeout( () => {
+				this.resetAll();
+				this.cssOutput = false;
+				this.sidebar = true;
+			}, 1000 )
+			.chainTimeout( () => {
+				this.sidebar = false;
+			}, 2000 )
 
     },
 
