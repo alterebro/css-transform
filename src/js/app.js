@@ -79,6 +79,9 @@ const App = new Vue({
             });
             document.querySelector('#app > article').addEventListener('click', () => this.modalWindowHide() );
 
+		// Init (close)
+		this.modalWindowHide()
+
         // Accordion
 		// TODO : Close when only one is open
         let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details summary') );
@@ -93,6 +96,8 @@ const App = new Vue({
                 });
             });
 
+
+		// INTRO
 		// Chain of Actions
 		let actionsChain =
 			chainTimeout( () => this.cssOutput = true, 250 )
@@ -223,8 +228,16 @@ const App = new Vue({
 
 		// ------------------
 		// - Modal Info Window
-        modalWindowShow() { document.querySelector('#app > article').classList.add('visible') },
-        modalWindowHide() { document.querySelector('#app > article').classList.remove('visible') },
+        modalWindowShow() {
+			let _modal = document.querySelector('#app > article');
+				_modal.classList.remove('gone');
+				chainTimeout( () => _modal.classList.add('visible'), 10 );
+		},
+        modalWindowHide() {
+			let _modal = document.querySelector('#app > article');
+				_modal.classList.remove('visible');
+				chainTimeout( () => _modal.classList.add('gone'), 350 );
+		},
 
 		// ------------------
 		// - Sidebar

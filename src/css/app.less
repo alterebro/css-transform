@@ -639,18 +639,25 @@ main {
 
 article {
     z-index: 10;
-    display: none;
+    display: flex;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, .75);
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    &.visible { display: flex; }
+    opacity: 0;
+    background: rgba(0, 0, 0, 0);
+    transition: all .25s ease-in-out;
+
+    &.visible {
+        opacity: 1;
+        background: rgba(0, 0, 0, .75);
+    }
+    &.gone { display: none; }
 
     > section {
         order: 2;
