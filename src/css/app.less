@@ -524,8 +524,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 0;
-
-    transition: padding .25s linear;
+    transition: width .1s linear;
 
     #box {
         display: inline-block;
@@ -573,7 +572,6 @@ main {
             border-left: dotted @color-fg-light 1px;
         }
 
-
         transform-style: preserve-3d;
         -webkit-transform-style: preserve-3d;
 
@@ -612,7 +610,6 @@ main {
 }
 
 
-
 #app.with-sidebar {
 
     section#do {
@@ -630,7 +627,11 @@ main {
 
     header { right: 0 }
     aside { right: 0 }
-    main { @media @desktop { padding: 0 @aside-width 0 0 } }
+    main {
+        @media @desktop {
+            width: ~"calc(100% - @{aside-width})";
+        }
+    }
 }
 
 
