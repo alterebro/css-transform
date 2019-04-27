@@ -82,6 +82,14 @@ const App = new Vue({
 		// Init (close)
 		this.modalWindowHide()
 
+		// Some keyboard action
+		document.addEventListener('keyup', e => {
+
+			if ( e.keyCode === 27 ) { this.modalWindowHide() } 		// 'Esc' to close modal
+			if ( e.keyCode === 9 ) { this.sidebar = !this.sidebar } // 'Tab' to toggle Sidebar
+			if ( e.keyCode === 32 ) { this.toggleCSSOutput() } 		// 'Space' to toggle CSS Output
+		})
+
         // Accordion
 		// TODO : Close when only one is open
         let detailsBlocks = Array.from( document.querySelectorAll('#app > article > section details summary') );
