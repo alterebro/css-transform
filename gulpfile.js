@@ -19,6 +19,7 @@ function styles() {
 function html() {
     return src('src/index.html')
         .pipe(replace(/..\/node_modules\/vue\/dist\/vue.js/g, 'js/vue.min.js'))
+        .pipe(replace(/..\/node_modules\/chain-timeout\/dist\/chain-timeout.min.js/g, 'js/chain-timeout.min.js'))
         .pipe(htmlmin({
             collapseWhitespace: true,
             removeComments: true
@@ -37,9 +38,12 @@ function copy_files() {
     return src(['src/_redirects', 'src/favicon.ico'])
     .pipe(dest('dist/'));
 }
-function vue_file() {
-    return src('node_modules/vue/dist/vue.min.js')
+function modules() {
+    return src([
+        'node_modules/vue/dist/vue.min.js',
+        'node_modules/chain-timeout/dist/chain-timeout.min.js'
+    ])
     .pipe(dest('dist/js'));
 }
 
-exports.build = parallel(styles, html, scripts, copy_files, vue_file);
+exports.build = parallel(styles, html, scripts, copy_files, modules);
