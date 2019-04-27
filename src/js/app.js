@@ -140,15 +140,11 @@ const App = new Vue({
 				this.translateY = 0;
 				this.skewX = 0;
 				this.skewY = 0;
-			}, 1000 )
-			.chainTimeout( () => {
-				this.resetAll();
-				this.cssOutput = false;
-				this.sidebar = true;
-			}, 1000 )
-			.chainTimeout( () => {
-				this.sidebar = false;
-			}, 2000 )
+			}, 500 )
+			.chainTimeout( () => this.sidebar = true , 500 )
+			.chainTimeout( () => this.cssOutput = false , 250 )
+			.chainTimeout( () => this.resetAll() , 250 )
+			.chainTimeout( () => this.sidebar = false , 1000 )
 
     },
 

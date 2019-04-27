@@ -49,6 +49,17 @@ button, input, optgroup, select, textarea {
     text-transform: none;
 }
 
+::-moz-selection {
+	background-color: @color-alpha-light;
+	color: @color-fg-light;
+	text-shadow: none;
+}
+::selection {
+    background-color: @color-alpha-light;
+	color: @color-fg-light;
+	text-shadow: none;
+}
+
 // -----------------------
 
 html {
@@ -251,6 +262,9 @@ label.checkboxed {
 
 // -----------------------
 
+
+
+
 #app {
     position: fixed;
     top: 0;
@@ -282,7 +296,7 @@ label.checkboxed {
             @color-beta,
             @color-beta-dark
         );
-        box-shadow: 0 1px 0 0 rgba(0, 0, 0, 1);
+        box-shadow: 0 1px 0 0 rgba(0, 0, 0, .35);
     }
 }
 
@@ -801,6 +815,7 @@ footer {
                     margin: 0;
                     padding: 1rem;
                     color: @color-fg-light;
+                    cursor: text;
                 }
             }
             &.visible { max-height: 320px; }
