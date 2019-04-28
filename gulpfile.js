@@ -39,6 +39,7 @@ function scripts() {
 function copy_files() {
     return src([
         'src/_redirects',
+        'src/manifest.json',
     ])
     .pipe(dest('dist/'));
 }

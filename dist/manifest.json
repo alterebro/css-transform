@@ -1,0 +1,9 @@
+{
+  "name": "CSS Transform Playground",
+  "short_name": "css-transform",
+  "lang": "en-US",
+  "start_url": "/index.html?launcher=true",
+  "display": "fullscreen",
+  "orientation": "any",
+  "theme_color": "#1a1718"
+}
