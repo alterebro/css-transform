@@ -149,22 +149,28 @@ const App = new Vue({
 		// -----
 		// Info dialog on the console
 		let keyCommands = [
-			' — Esc : Closes info modal window when opened',
-			' — Tab : Open / closes the sidebar',
-			' — Space : Open / closes the CSS Output footer panel',
-			' — Key #1 : Random All transform functions',
-			' — Key #2 : Reset All transform functions',
-			' — Key #3 : Activate All transform functions',
-			' — Key #4 : Deactivate All transform functions',
-		]
+			' • Esc : Closes info modal window when opened.',
+			' • Tab : Open / closes the sidebar.',
+			' • Space : Open / closes the CSS Output footer panel.',
+			' • Num. #1 : Random All transform functions.',
+			' • Num. #2 : Reset All transform functions.',
+			' • Num. #3 : Activate All transform functions.',
+			' • Num. #4 : Deactivate All transform functions.',
+		];
 
-		console.log('');
-		console.log('%c' + 'css-transform', 'color: #fff; background-color: #444; padding: 4px 7px; border-radius: 3px;');
-		console.log('%c' + 'Keyboard commands:', 'font-weight: bold; margin-left: 5px;');
 		console.log(
-			'%c' + keyCommands.join("\n"), 'line-height: 1.5; font-family: monospace'
+			'\n' +
+			'%ccss-transform' +
+			'%c\nKeyboard commands:' +
+			'%c\n' + keyCommands.join("\n") +
+			'%c\n@alterebro - https://twitter.com/alterebro' +
+			'\n',
+
+			'color: #fff; background-color: #444; padding: 5px 10px; margin: 10px 0 5px; border-radius: 3px;',
+			'font-weight: bold; margin: 5px; display: block;',
+			'line-height: 1.5; font-family: monospace; color: #217eaa',
+			'margin: 5px 10px; display: block; font-size: 90%; color: #777'
 		);
-		console.log('');
     },
 
 	computed : {
