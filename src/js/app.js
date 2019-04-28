@@ -146,6 +146,25 @@ const App = new Vue({
 			.chainTimeout( () => this.resetAll() , 250 )
 			.chainTimeout( () => this.sidebar = false , 1000 )
 
+		// -----
+		// Info dialog on the console
+		let keyCommands = [
+			' — Esc : Closes info modal window when opened',
+			' — Tab : Open / closes the sidebar',
+			' — Space : Open / closes the CSS Output footer panel',
+			' — Key #1 : Random All transform functions',
+			' — Key #2 : Reset All transform functions',
+			' — Key #3 : Activate All transform functions',
+			' — Key #4 : Deactivate All transform functions',
+		]
+
+		console.log('');
+		console.log('%c' + 'css-transform', 'color: #fff; background-color: #444; padding: 4px 7px; border-radius: 3px;');
+		console.log('%c' + 'Keyboard commands:', 'font-weight: bold; margin-left: 5px;');
+		console.log(
+			'%c' + keyCommands.join("\n"), 'line-height: 1.5; font-family: monospace'
+		);
+		console.log('');
     },
 
 	computed : {
