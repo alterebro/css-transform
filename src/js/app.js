@@ -215,7 +215,19 @@ const App = new Vue({
 
 		hasStyle() {
 			return (this.styleObject.transform.length > 0) || (this.styleObject['transform-origin'] != null);
-		}
+		},
+
+		isActivated() {
+			return !(
+				this.transformOriginActive == false &&
+				this.rotate2Dactive == false &&
+				this.rotate3Dactive == false &&
+				this.perspectiveActive == false &&
+				this.scaleActive == false &&
+				this.translateActive == false &&
+				this.skewActive == false
+			);
+		},
 
 	},
 

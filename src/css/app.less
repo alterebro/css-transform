@@ -573,34 +573,40 @@ main {
         }
         &:before {
             top: 50%;
-            left: -10%;
+            left: -15%;
             height: 0;
-            width: 120%;
-            border-top: dotted @color-fg-light 1px;
+            width: 130%;
+            border-top: dotted fade(@color-fg-light, 50%) 2px;
+            margin-top: -1px;
         }
         &:after {
-            top: -10%;
+            top: -15%;
             left: 50%;
-            height: 120%;
+            height: 130%;
             width: 0;
-            border-left: dotted @color-fg-light 1px;
+            border-left: dotted fade(@color-fg-light, 50%) 2px;
+            margin-left: -1px;
         }
 
         transform-style: preserve-3d;
         -webkit-transform-style: preserve-3d;
 
         .alpha-panel {
-            border: dotted @color-alpha 1px;
-            width: ~"calc(100% - 20px)";
-            height: ~"calc(100% - 20px)";
-            position: absolute;
-            top: 10px;
-            left: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
 
-            transition: background .35s ease-in-out;
+            top: -10px;
+            left: -10px;
+            width: ~"calc(100% + 20px)";
+            height: ~"calc(100% + 20px)";
+            box-shadow: inset 0 0 0 10px fade(@color-alpha, 50%);
+            background-color: rgba(0, 0, 0, .1);
+            opacity: 0;
+            transition: all .35s ease-in-out;
+
+            &.active { opacity: 1 }
 
             strong {
                 opacity: 0;
@@ -614,7 +620,8 @@ main {
             }
 
             &:hover {
-                background-color: rgba(0, 0, 0, .25);
+                box-shadow: inset 0 0 0 10px @color-beta;
+                background-color: rgba(0, 0, 0, .5);
                 strong { opacity: 1; }
             }
         }

@@ -1,6 +1,8 @@
-# css-transform [css-transform.moro.es/](https://css-transform.moro.es/)
+# css-transform &rsaquo; [css-transform.moro.es](https://css-transform.moro.es/)
 
-**CSS3 Transform Functions Playground**. Demo UI built with [Vue](https://vuejs.org/), [Gulp](https://gulpjs.com/) and [LESS](http://lesscss.org/), deployed via [Netlify](https://www.netlify.com/)
+**CSS3 Transform Functions Playground**. Demo UI built with [Vue](https://vuejs.org/), [Gulp](https://gulpjs.com/) and [LESS](http://lesscss.org/). Deployment via [Netlify](https://www.netlify.com/)
+
+![Netlify Status](https://api.netlify.com/api/v1/badges/61609638-1191-4dfa-ab28-53af3b7c17c0/deploy-status)
 
 ---
 
