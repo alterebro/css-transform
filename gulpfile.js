@@ -1,7 +1,8 @@
 const { series, parallel, src, dest } = require('gulp');
 const less = require('gulp-less');
-const autoprefixer = require('gulp-autoprefixer');
-const cssnano = require('gulp-cssnano');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const postcss = require('gulp-postcss');
 const htmlmin = require('gulp-htmlmin');
 const replace = require('gulp-replace');
 const babel = require('gulp-babel');
@@ -10,12 +11,13 @@ const del = require('del');
 const fs = require('fs');
 
 function styles() {
+    let plugins = [
+        autoprefixer(),
+        cssnano()
+    ];
     return src('src/css/app.less')
         .pipe(less())
-        .pipe(autoprefixer({
-            browsers: ['> 0.5%, last 2 versions, Firefox ESR, not dead']
-        }))
-        .pipe(cssnano())
+        .pipe(postcss(plugins))
         .pipe(dest('dist/css'));
 }
 function html() {
