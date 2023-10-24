@@ -31,7 +31,7 @@
   "devDependencies": {
     "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
-    "autoprefixer": "^9.8.5",
+    "autoprefixer": "^10.4.16",
     "chain-timeout": "^1.0.5",
     "cssnano": "^5.1.14",
     "del": "^4.1.1",
@@ -39,7 +39,7 @@
     "gulp-babel": "^8.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-less": "^4.0.1",
-    "gulp-postcss": "^8.0.0",
+    "gulp-postcss": "^9.0.1",
     "gulp-replace": "^1.0.0",
     "gulp-uglify": "^3.0.2",
     "vue": "^2.6.11"
