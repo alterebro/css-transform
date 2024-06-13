@@ -35,7 +35,7 @@
     "chain-timeout": "^1.0.5",
     "cssnano": "^5.1.14",
     "del": "^4.1.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-htmlmin": "^5.0.1",
     "gulp-less": "^4.0.1",
