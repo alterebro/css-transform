@@ -37,7 +37,7 @@
     "@babel/preset-env": "^8.0.2",
     "autoprefixer": "^10.4.16",
     "chain-timeout": "^1.0.5",
-    "cssnano": "^5.1.14",
+    "cssnano": "^9.8.0",
     "del": "^8.0.1",
     "gulp": "^5.0.0",
     "gulp-babel": "^8.1.0",
